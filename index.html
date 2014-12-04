@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Sentiment</title>
+	<link rel="stylesheet" type="text/css" href="css/jquery.fullPage.css">
+	<link rel="stylesheet" type="text/css" href="css/main.css">
+	<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Arvo:normal,bold,light,thin|Oswald:normal,bold,light,thin,100|Lato:normal,bold,light,thin">
+</head>
+<body>
+	<header class="cf">
+		<a href="index.html" id="title"><h1>Sentiment</h1></a>
+		<!-- <div id="search_title"></div> -->
+		<ul>
+			<a href="about.html"><li>About</li></a>
+			<a href="contact.html"><li>Contact</li></a>
+		</ul>
+	</header>
+
+	<div id="fullpage">
+		<div class="cf section" id="search_area">
+			<div id="intro">Enter the name of a subreddit to see the overall sentiment of its comments.</div>
+
+			<form id='search_form' action='https://api.twitter.com/1.1/search/tweets.json?' method='get'>
+				<input type='text' id='search-term' name='q' placeholder='e.g. casualconversation'>
+				<button name="submitform" class="button" type="submit">GO</button>
+			</form>
+			<div class="helpertext"></div>
+		</div>
+
+		<div class="section cf" id="results_area">
+			<div class="topcontainer">
+				<a href="#1"><div class="arrow-up"></div></a>
+				<a href="#1"><div class="arrowtext">Start</div></a>
+			</div>
+			<section class="split positive">
+				<div class="bottomcontainer subtitle">Graph 1</div>
+			</section>
+
+			<section class="split negative">
+				<div class="bottomcontainer subtitle">Graph 2</div>
+			</section>
+
+			<div class="bottomcontainer footer">
+				<a href="#3"><div class="arrowtext">See details</div></a>
+				<a href="#3"><div class="arrow-down"></div></a>
+			</div>
+		</div>
+
+		<div class="section cf" id="results_breakdown">
+			<div class="topcontainer">
+				<a href="#2"><div class="arrow-up"></div></a>
+				<a href="#2"><div class="arrowtext">Graphs</div></a>
+			</div>
+
+			<section class="split positive">
+				<div class="topcontainer subtitle">Positive</div>
+				<div class="feed">
+					<ul>
+						<li class="entry">
+							<h3>Test test test test test test test test test test test test test test test test test test test</h3>
+							<div class="entryDetails">positive</div>
+							<div class="entryDetails">0.83838383</div>
+						</li>
+						<li class="entry">
+							<h3>Test test test test test test test test test test test test test test test test test test test</h3>
+							<div class="entryDetails">positive</div>
+							<div class="entryDetails">0.83838383</div>
+						</li>
+						<li class="entry">
+							<h3>Test test test test test test test test test test test test test test test test test test test</h3>
+							<div class="entryDetails">positive</div>
+							<div class="entryDetails">0.83838383</div>
+						</li>
+						<li class="entry">
+							<h3>Test test test test test test test test test test test test test test test test test test test</h3>
+							<div class="entryDetails">positive</div>
+							<div class="entryDetails">0.83838383</div>
+						</li>
+						<li class="entry">
+							<h3>Test test test test test test test test test test test test test test test test test test test</h3>
+							<div class="entryDetails">positive</div>
+							<div class="entryDetails">0.83838383</div>
+						</li>
+					</ul>
+				</div>
+			</section>
+
+			<section class="split negative">
+				<div class="topcontainer subtitle">Negative</div>
+				<div class="feed">
+					<ul>
+						<li class="entry">
+							<h3>Test test test test test test test test test test test test test test test test test test test</h3>
+							<div class="entryDetails">negative</div>
+							<div class="entryDetails">0.83838383</div>
+						</li>
+						<li class="entry">
+							<h3>Test test test test test test test test test test test test test test test test test test test</h3>
+							<div class="entryDetails">negative</div>
+							<div class="entryDetails">0.83838383</div>
+						</li>
+						<li class="entry">
+							<h3>Test test test test test test test test test test test test test test test test test test test</h3>
+							<div class="entryDetails">negative</div>
+							<div class="entryDetails">0.83838383</div>
+						</li>
+						<li class="entry">
+							<h3>Test test test test test test test test test test test test test test test test test test test</h3>
+							<div class="entryDetails">negative</div>
+							<div class="entryDetails">0.83838383</div>
+						</li>
+						<li class="entry">
+							<h3>Test test test test test test test test test test test test test test test test test test test</h3>
+							<div class="entryDetails">negative</div>
+							<div class="entryDetails">0.83838383</div>
+						</li>
+					</ul>
+				</div>
+			</section>
+			<div class="bottomcontainer footer">
+				<a href="#4"><div class="arrowtext">Credits</div></a>
+				<a href="#4"><div class="arrow-down"></div></a>
+			</div>
+		</div>
+
+		<div class="section" id="credits">
+			<div class="topcontainer">
+				<a href="#3"><div class="arrow-up"></div></a>
+			</div>
+			<div class="bottomcontainer footer">
+				<a href="#1"><div class="arrowtext">Back to top</div></a>
+			</div>
+			<footer>
+				created by jona smulders-cohen
+			</footer>
+		</div>
+	</div>
+
+
+
+	<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+	<script type="text/javascript" src="js/main.js"></script>
+	<script type="text/javascript" src="js/jquery.fullPage.js"></script>
+	<script src="http://crypto-js.googlecode.com/svn/tags/3.1.2/build/rollups/hmac-sha1.js"></script>
+	<script src="http://crypto-js.googlecode.com/svn/tags/3.1.2/build/components/enc-base64-min.js"></script>
+</body>
+</html>
