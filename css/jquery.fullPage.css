@@ -156,10 +156,10 @@ html, body {
 }
 #fp-nav ul li .fp-tooltip {
     position: absolute;
-    top: -2px;
-    color: #fff;
-    font-size: 14px;
-    font-family: arial, helvetica, sans-serif;
+    top: 0px;
+    color: black;
+    font-size: 12px;
+    font-family: helvetica, sans-serif;
     white-space: nowrap;
     max-width: 220px;
     overflow: hidden;

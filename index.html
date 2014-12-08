@@ -1,15 +1,15 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Sentiment</title>
+	<title>Reddit Sentiment</title>
 	<link rel="stylesheet" type="text/css" href="css/jquery.fullPage.css">
 	<link rel="stylesheet" type="text/css" href="css/main.css">
 	<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Arvo:normal,bold,light,thin|Oswald:normal,bold,light,thin,100|Lato:normal,bold,light,thin">
 </head>
 <body>
 	<header class="cf">
-		<a href="index.html" id="title"><h1>Sentiment</h1></a>
-		<!-- <div id="search_title"></div> -->
+		<a href="index.html" id="title"><h1>Reddit Sentiment</h1></a>
+		<div id="search_title"></div>
 		<ul>
 			<a href="about.html"><li>About</li></a>
 			<a href="contact.html"><li>Contact</li></a>
@@ -18,19 +18,21 @@
 
 	<div id="fullpage">
 		<div class="cf section" id="search_area">
-			<div id="intro">Enter the name of a subreddit to see the overall sentiment of its comments.</div>
+			<div id="intro">Enter the name of a subreddit to see the overall sentiment of its 25 most recent comments.</div>
 
-			<form id='search_form' action='https://api.twitter.com/1.1/search/tweets.json?' method='get'>
-				<input type='text' id='search-term' name='q' placeholder='e.g. casualconversation'>
+			<form id='search_form'>
+				<label for="search-term">/r/</label>
+
+				<input type='text' id='search-term' name='q' placeholder='e.g. casualconversation' required>
 				<button name="submitform" class="button" type="submit">GO</button>
 			</form>
-			<div class="helpertext"></div>
+			<div class="helpertext">Please see the <a href='about.html'>about</a> page for details about this project and feel free to <a href='contact.html'>contact me</a> if you have any questions or suggestions</div>
 		</div>
 
 		<div class="section cf" id="results_area">
 			<div class="topcontainer">
 				<a href="#1"><div class="arrow-up"></div></a>
-				<a href="#1"><div class="arrowtext">Start</div></a>
+				<a href="#1"><div class="arrowtext">Start Again</div></a>
 			</div>
 			<section class="split positive">
 				<div class="bottomcontainer subtitle">Graph 1</div>
@@ -56,31 +58,14 @@
 				<div class="topcontainer subtitle">Positive</div>
 				<div class="feed">
 					<ul>
-						<li class="entry">
-							<h3>Test test test test test test test test test test test test test test test test test test test</h3>
-							<div class="entryDetails">positive</div>
-							<div class="entryDetails">0.83838383</div>
-						</li>
-						<li class="entry">
-							<h3>Test test test test test test test test test test test test test test test test test test test</h3>
-							<div class="entryDetails">positive</div>
-							<div class="entryDetails">0.83838383</div>
-						</li>
-						<li class="entry">
-							<h3>Test test test test test test test test test test test test test test test test test test test</h3>
-							<div class="entryDetails">positive</div>
-							<div class="entryDetails">0.83838383</div>
-						</li>
-						<li class="entry">
-							<h3>Test test test test test test test test test test test test test test test test test test test</h3>
-							<div class="entryDetails">positive</div>
-							<div class="entryDetails">0.83838383</div>
-						</li>
-						<li class="entry">
-							<h3>Test test test test test test test test test test test test test test test test test test test</h3>
-							<div class="entryDetails">positive</div>
-							<div class="entryDetails">0.83838383</div>
-						</li>
+					</ul>
+				</div>
+			</section>
+
+			<section class="split neutral">
+				<div class="topcontainer subtitle">Neutral</div>
+				<div class="feed">
+					<ul>
 					</ul>
 				</div>
 			</section>
@@ -89,31 +74,6 @@
 				<div class="topcontainer subtitle">Negative</div>
 				<div class="feed">
 					<ul>
-						<li class="entry">
-							<h3>Test test test test test test test test test test test test test test test test test test test</h3>
-							<div class="entryDetails">negative</div>
-							<div class="entryDetails">0.83838383</div>
-						</li>
-						<li class="entry">
-							<h3>Test test test test test test test test test test test test test test test test test test test</h3>
-							<div class="entryDetails">negative</div>
-							<div class="entryDetails">0.83838383</div>
-						</li>
-						<li class="entry">
-							<h3>Test test test test test test test test test test test test test test test test test test test</h3>
-							<div class="entryDetails">negative</div>
-							<div class="entryDetails">0.83838383</div>
-						</li>
-						<li class="entry">
-							<h3>Test test test test test test test test test test test test test test test test test test test</h3>
-							<div class="entryDetails">negative</div>
-							<div class="entryDetails">0.83838383</div>
-						</li>
-						<li class="entry">
-							<h3>Test test test test test test test test test test test test test test test test test test test</h3>
-							<div class="entryDetails">negative</div>
-							<div class="entryDetails">0.83838383</div>
-						</li>
 					</ul>
 				</div>
 			</section>
@@ -126,6 +86,16 @@
 		<div class="section" id="credits">
 			<div class="topcontainer">
 				<a href="#3"><div class="arrow-up"></div></a>
+			</div>
+			<div class="split single">
+				<ul class="leftlist">
+					<li><a href="http://alvarotrigo.com/fullPage/">Full page sliders</a></li>
+					<li><a href="https://www.mashape.com/loudelement/free-natural-language-processing-service">Natural Language Processing API</a></li>
+				</ul>
+				<ul class="rightlist">
+					<li><a href="http://alvarotrigo.com/">by Alvaro Trigo</a></li>
+					<li><a href="http://loudelement.com/">by Taewook Kang</a></li>
+				</ul>
 			</div>
 			<div class="bottomcontainer footer">
 				<a href="#1"><div class="arrowtext">Back to top</div></a>

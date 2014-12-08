@@ -22,7 +22,7 @@ body {
 	color: white;
 	margin: auto;
 	text-align: center;
-	background-image: url(../images/wallpaper-323819.jpg);
+	/*background-image: url(../images/wallpaper-323819.jpg);*/
 	background-size: cover;
 	background-position: center;
 }
@@ -70,6 +70,10 @@ form {
 	display: inline-block;
 }
 
+label {
+	padding: 5px;
+}
+
 footer {
 	background-color: rgba(61, 61, 61, 0.69);
 	width: 100%;
@@ -78,6 +82,7 @@ footer {
 	left:0;
 	position: absolute;
 	font-weight: lighter;
+	font-size: 0.8em
 }
 
 button {
@@ -132,6 +137,7 @@ li {
 	list-style-type: none;
 	display: inline-block;
 	font-weight: lighter;
+	overflow: hidden;
 }
 
 header li {
@@ -144,7 +150,15 @@ li:hover {
 }
 
 .helpertext {
-	margin-top: 15px;
+	margin: auto;
+	position: relative;
+	color: rgb(53, 53, 53);
+	font-size: 15px;
+	top: 36%;
+	font-weight: 300;
+	width: 49%;
+	background-color: rgba(255, 255, 255, 0.15);
+	padding: 15px;
 }
 
 .picker {
@@ -166,7 +180,7 @@ li:hover {
 
 .split {
 	display: inline-block;
-	width: 47vw;
+	width: 45vw;
 	height: 76vh;
 	background-color: rgba(255, 255, 255, 0.21);
 	margin: 15px;
@@ -187,7 +201,6 @@ li:hover {
 	padding: 31px;
 	background-color: rgba(196, 197, 207, 0.21);
 	height: auto;
-	margin-top: 4%;
 }
 
 .bottomcontainer {
@@ -214,13 +227,13 @@ li:hover {
 .feed {
 	display: block;
 	width: 100%;
-	height: 637px;
-	margin-top: 40px;	
+	height: 100%;	
 	overflow-y: auto;
 	overflow-y: scroll;
 	text-align: left;
 	padding: 8px;
 	color: #414141;
+	padding-top: 48px;
 }
 
 .entry {
@@ -236,7 +249,7 @@ li:hover {
 }
 
 #credits .footer {
-	height: 47%;
+	height: 39%;
 }
 
 .arrow-up {
@@ -272,6 +285,23 @@ a .arrowtext {
 	margin-top: 0px
 }
 
+#credits .arrowtext {
+	display: inline-block;
+	color: rgb(234, 234, 234);
+	margin-top: 0px;
+	background-color: rgba(45, 45, 45, 0.84);
+	height: 50px;
+	width: 147px;
+	padding-top: 15px;
+	font-weight: bolder;
+}
+
+#credits .arrowtext:hover {
+	box-shadow: 0px 0px 15px 0px rgba(50, 50, 50, 0.75);
+	transition: box-shadow 0.5s ease;
+}
+
+
 .split .topcontainer {
 	top: 0px;
 	padding: 0.5em 0px;
@@ -282,8 +312,16 @@ a .arrowtext {
 	background-color: #5ACA74;
 }
 
+.split.neutral .topcontainer {
+	background-color: #9BC5CF;
+}
+
 .split.negative .topcontainer {
 	background-color: #E45757;
+}
+
+#results_breakdown .split {
+	width: 29%;
 }
 
 .mini {
@@ -306,11 +344,18 @@ a .arrowtext {
 .mini #title {
 	position: absolute;
 	left: 0px;
+	z-index: 1;
 }
 
 #search_title {
-	display: inline-block;
-
+position: absolute;
+display: block;
+width: 100%;
+text-align: center;
+padding: 20px;
+font-weight: 100;
+font-size: 17px;
+color: rgba(255, 255, 255, 0.58);
 }
 
 #twitter {
@@ -321,11 +366,11 @@ a .arrowtext {
 	font-size: 27px;
 	width: 450px;
 	margin: auto;
-	margin-top: 13%;
 }
 
 #search_area {
 	background: linear-gradient(#4BBFC3,#7BBE8E);
+	height: 100vh !important;
 }
 
 #social_icons {
@@ -342,12 +387,10 @@ a .arrowtext {
 
 #about {
 	background-color: #F2F2F2;
-	padding-top: 100px;
 }
 
 #contact {
 	background-color: #F2F2F2;
-	padding-top: 100px;
 }
 
 #positive {
@@ -364,7 +407,7 @@ a .arrowtext {
 
 .split {
 	margin: 10px;
-	top: 4.25%;
+	top: 6.5%;
 }
 
 #search-term {
@@ -390,15 +433,35 @@ a .arrowtext {
 .leftlist {
 	text-align: right;
 	border-right: 1px solid gray;
-
+	float: left;
+	width: 50%;
 }
 
 .rightlist {
 	text-align: left;
+	float: left;
+	width: 50%
 }
 
 #credits li {
 	color: gray;
 	padding: 10px;
 	display: block;
+}
+
+#credits .split {
+	top: -55%;
+	width: 700px;
+}
+
+#credits a {
+	color: gray;
+}
+
+#fp-nav li {
+	margin-right: 0px !important
+}
+
+#fp-nav li:hover {
+	background-color: rgba(255, 255, 255, 0);;
 }

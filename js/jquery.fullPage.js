@@ -16,8 +16,8 @@
 			'navigation': false,
 			'navigationPosition': 'right',
 			'navigationColor': '#000',
-			'navigationTooltips': [],
-			'slidesNavigation': false,
+			'navigationTooltips': ['Start', 'Results', 'Details', 'Credits'],
+			'slidesNavigation': true,
 			'slidesNavPosition': 'bottom',
 			'scrollBar': false,
 
@@ -31,13 +31,13 @@
 			'loopTop': false,
 			'loopHorizontal': true,
 			'continuousVertical': false,
-			'normalScrollElements': null,
+			'normalScrollElements': '',
 			'scrollOverflow': false,
 			'touchSensitivity': 5,
 			'normalScrollElementTouchThreshold': 5,
 
 			//Accessibility
-			'keyboardScrolling': true,
+			'keyboardScrolling': false,
 			'animateAnchor': true,
 
 			//design
@@ -276,7 +276,7 @@
 		var nav;
 		var wrapperSelector = 'fullpage-wrapper';
 
-		$.fn.fullpage.setAllowScrolling(true);
+		$.fn.fullpage.setAllowScrolling(false);
 
 		//if css3 is not supported, it will use jQuery animations
 		if(options.css3){
