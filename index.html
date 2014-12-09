@@ -24,7 +24,7 @@
 				<label for="search-term">/r/</label>
 
 				<input type='text' id='search-term' name='q' placeholder='e.g. casualconversation' required>
-				<button name="submitform" class="button" type="submit">GO</button>
+				<button name="submitform" class="button" type="submit"><div>GO</div></button>
 			</form>
 			<div class="helpertext">Please see the <a href='about.html'>about</a> page for details about this project and feel free to <a href='contact.html'>contact me</a> if you have any questions or suggestions</div>
 		</div>
@@ -34,11 +34,14 @@
 				<a href="#1"><div class="arrow-up"></div></a>
 				<a href="#1"><div class="arrowtext">Start Again</div></a>
 			</div>
-			<section class="split positive">
+			<section class="split">
+				<canvas class ="chart" id="pieChart">
+				</canvas>
 				<div class="bottomcontainer subtitle">Graph 1</div>
 			</section>
 
-			<section class="split negative">
+			<section class="split">
+				<canvas class ="chart" id="barChart"></canvas>
 				<div class="bottomcontainer subtitle">Graph 2</div>
 			</section>
 

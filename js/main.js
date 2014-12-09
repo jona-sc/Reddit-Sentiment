@@ -24,7 +24,7 @@ function getComments(subredditName) {
 			allComments.push(comment)
 		});
 		analyseComments(allComments);
-	});
+	}); 
 }
 
 function analyseComments(commentArray) {
@@ -34,30 +34,31 @@ function analyseComments(commentArray) {
 			type: 'GET',
 			data: {text: thisComment.body},
 			datatype: 'json',
+			// async: false,
 			success: function(data) {
 				var score = Math.round(data["sentiment-score"] * 100) + '%'
 				var sentiment = data["sentiment-text"]
 				thisComment.score = score
 				thisComment.sentiment = sentiment
 				if(thisComment.sentiment=='positive') {
-					positiveComments.push(thisComment);
 					$('.positive .feed ul').append('<li class="entry"><h3>' + thisComment.body + '</h3><div class="entrydetails">' + thisComment.sentiment + '</div><div class="entrydetails">' + thisComment.score + '</div></li>');
+					positiveComments.push(thisComment);
 				} else if(thisComment.sentiment=='negative') {
-					negativeComments.push(thisComment);
 					$('.negative .feed ul').append('<li class="entry"><h3>' + thisComment.body + '</h3><div class="entrydetails">' + thisComment.sentiment + '</div><div class="entrydetails">' + thisComment.score + '</div></li>');
+					negativeComments.push(thisComment);
 				} else if(thisComment.sentiment=='neutral') {
-					neutralComments.push(thisComment);
 					$('.neutral .feed ul').append('<li class="entry"><h3>' + thisComment.body + '</h3><div class="entrydetails">' + thisComment.sentiment + '</div><div class="entrydetails">' + thisComment.score + '</div></li>');
+					neutralComments.push(thisComment);
 				} else {
 					console.log('didnt work on', thisComment);
 				}
-			},
+			}, 
 			beforeSend: function (xhr) {
 				 xhr.setRequestHeader("X-Mashape-Authorization", "NIUtQInc7Wmsh59dMi6mveiUMHc1p1QzTBVjsndtfMs1yrPTuf");
-			},
+			} 
 		});
-	});
-}
+	}); 
+};
 
 // function getSubreddits() {
 // 	var url = 'http://api.reddit.com/reddits';
@@ -69,6 +70,16 @@ function analyseComments(commentArray) {
 // 		});
 // 	});
 // }
+
+function graphs() {
+	var numPositive = positiveComments.length;
+	var numNegative = negativeComments.length;
+	var numNeutral = neutralComments.length;
+	var totalComments = numPositive += numNeutral += numNegative;
+	console.log(totalComments)
+}
+
+
 
 function minifyHeader() {
 		var hash = location.hash
@@ -87,22 +98,16 @@ window.onhashchange = function() {
 	minifyHeader();
 };
 
-
 $(document).ready(function() {
 	$('#fullpage').fullpage();
-	// getSubreddits()
+	minifyHeader();
+
 
 	// On form subit, execute function using query
-		$('#search_form').on('submit', function(e) {
+	$('#search_form').on('submit', function(e) {
 		e.preventDefault();
 		var subredditToShow = $('#search-term').val();
 		getComments(subredditToShow);
 		window.location = 'index.html#2'
 	});
-
-	
-	minifyHeader();
-	
-	
-
 });
