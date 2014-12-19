@@ -5,9 +5,15 @@
 	<link rel="stylesheet" type="text/css" href="css/jquery.fullPage.css">
 	<link rel="stylesheet" type="text/css" href="css/main.css">
 	<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Arvo:normal,bold,light,thin|Oswald:normal,bold,light,thin,100|Lato:normal,bold,light,thin">
+	<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+	<script type="text/javascript" src="js/main.js"></script>
+	<script type="text/javascript" src="js/jquery.fullPage.js"></script>
+	<script type="text/javascript" src="js/Chart.min.js"></script>
+	<script src="http://crypto-js.googlecode.com/svn/tags/3.1.2/build/rollups/hmac-sha1.js"></script>
+	<script src="http://crypto-js.googlecode.com/svn/tags/3.1.2/build/components/enc-base64-min.js"></script>
 </head>
 <body>
-	<header class="cf">
+	<header class="normal cf">
 		<a href="index.html" id="title"><h1>Reddit Sentiment</h1></a>
 		<div id="search_title"></div>
 		<ul>
@@ -18,7 +24,7 @@
 
 	<div id="fullpage">
 		<div class="cf section" id="search_area">
-			<div id="intro">Enter the name of a subreddit to see the overall sentiment of its 25 most recent comments.</div>
+			<div id="intro">Enter the name of a subreddit to see the overall sentiment of its recent comments.</div>
 
 			<form id='search_form'>
 				<label for="search-term">/r/</label>
@@ -34,14 +40,18 @@
 				<a href="#1"><div class="arrow-up"></div></a>
 				<a href="#1"><div class="arrowtext">Start Again</div></a>
 			</div>
-			<section class="split">
-				<canvas class ="chart" id="pieChart">
-				</canvas>
-				<div class="bottomcontainer subtitle">Graph 1</div>
-			</section>
+			<img id="reddit-loading" class="rotating" src="./images/reddit-alien.png"/>
 
 			<section class="split">
-				<canvas class ="chart" id="barChart"></canvas>
+				<div class=chartcontainer>
+				<canvas class="chart" id="pie-chart"/></canvas>
+				</div>
+				<div class="bottomcontainer subtitle">Graph 1</div>
+			</section>
+			<section class="split">
+				<div class=chartcontainer>
+				<canvas class="chart" id="bar-chart"/></canvas>
+				</div>
 				<div class="bottomcontainer subtitle">Graph 2</div>
 			</section>
 
@@ -111,10 +121,6 @@
 
 
 
-	<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-	<script type="text/javascript" src="js/main.js"></script>
-	<script type="text/javascript" src="js/jquery.fullPage.js"></script>
-	<script src="http://crypto-js.googlecode.com/svn/tags/3.1.2/build/rollups/hmac-sha1.js"></script>
-	<script src="http://crypto-js.googlecode.com/svn/tags/3.1.2/build/components/enc-base64-min.js"></script>
+
 </body>
 </html>
