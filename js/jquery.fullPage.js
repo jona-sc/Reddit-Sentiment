@@ -17,8 +17,8 @@
 			'navigationPosition': 'right',
 			'navigationColor': '#000',
 			'navigationTooltips': ['Start', 'Results', 'Details', 'Credits'],
-			'slidesNavigation': true,
-			'slidesNavPosition': 'bottom',
+			'slidesNavigation': false,
+			'slidesNavPosition': 'right',
 			'scrollBar': false,
 
 			//scrolling
@@ -42,13 +42,13 @@
 
 			//design
 			'controlArrowColor': '#fff',
-			"verticalCentered": true,
+			"verticalCentered": false,
 			'resize': true,
 			'sectionsColor' : [],
-			'paddingTop': 0,
-			'paddingBottom': 0,
+			'paddingTop': '60px',
+			'paddingBottom': '40px',
 			'fixedElements': null,
-			'responsive': 0,
+			'responsive': /*630*/0,
 
 			//Custom selectors
 			'sectionSelector': '.section',

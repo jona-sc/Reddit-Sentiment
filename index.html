@@ -24,7 +24,7 @@
 
 	<div id="fullpage">
 		<div class="cf section" id="search_area">
-			<div id="intro">Enter the name of a subreddit to see the overall sentiment of its recent comments.</div>
+			<div id="intro">Enter the name of a subreddit to see the sentiment of its recent comments.</div>
 
 			<form id='search_form'>
 				<label for="search-term">/r/</label>
@@ -41,18 +41,19 @@
 				<a href="#1"><div class="arrowtext">Start Again</div></a>
 			</div>
 			<img id="reddit-loading" class="rotating" src="./images/reddit-alien.png"/>
+			<div class="helpertext oops">Oops, looks like there's nothing here. Try entering a subreddit on the <a href="#1">start page</a></div>
 
 			<section class="split">
 				<div class=chartcontainer>
 				<canvas class="chart" id="pie-chart"/></canvas>
 				</div>
-				<div class="bottomcontainer subtitle">Graph 1</div>
+				<div class="bottomcontainer subtitle"></div>
 			</section>
 			<section class="split">
 				<div class=chartcontainer>
 				<canvas class="chart" id="bar-chart"/></canvas>
 				</div>
-				<div class="bottomcontainer subtitle">Graph 2</div>
+				<div class="bottomcontainer subtitle"></div>
 			</section>
 
 			<div class="bottomcontainer footer">
@@ -96,23 +97,24 @@
 			</div>
 		</div>
 
-		<div class="section" id="credits">
+		<div class="section cf" id="credits">
 			<div class="topcontainer">
 				<a href="#3"><div class="arrow-up"></div></a>
 			</div>
 			<div class="split single">
+				<p>The tools that made this site possible:</p>
 				<ul class="leftlist">
 					<li><a href="http://alvarotrigo.com/fullPage/">Full page sliders</a></li>
 					<li><a href="https://www.mashape.com/loudelement/free-natural-language-processing-service">Natural Language Processing API</a></li>
+					<li><a href="http://www.chartjs.org/">Chart.js</a></li>
 				</ul>
 				<ul class="rightlist">
 					<li><a href="http://alvarotrigo.com/">by Alvaro Trigo</a></li>
-					<li><a href="http://loudelement.com/">by Taewook Kang</a></li>
+					<li class='twoline'><a href="http://loudelement.com/">by Taewook Kang</a></li>
+					<li><a href="http://www.nickdownie.com/">by Nick Downie</a></li>
 				</ul>
 			</div>
-			<div class="bottomcontainer footer">
-				<a href="#1"><div class="arrowtext">Back to top</div></a>
-			</div>
+			<a href="#1"><div class="arrowtext">Back to top</div></a>
 			<footer>
 				created by jona smulders-cohen
 			</footer>

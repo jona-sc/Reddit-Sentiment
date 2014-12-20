@@ -187,12 +187,16 @@ $(document).ready(function() {
 	minifyHeader();
 	if (allComments.length == 0) {
 		$('#reddit-loading').hide()
+		$('.oops').show()
+	} else {
+		$('.oops').hide()
 	}
 
 	// On form subit, execute function
 	$('#search_form').on('submit', function(e) {
 		e.preventDefault();
 		$('#reddit-loading').show()
+		$('.oops').hide()
 		var subredditToShow = $('#search-term').val();
 		getComments(subredditToShow);
 		window.location = 'index.html#2'
