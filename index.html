@@ -24,22 +24,31 @@
 
 	<div id="fullpage">
 		<div class="cf section" id="search_area">
-			<div id="intro">Enter the name of a subreddit to see the sentiment of its recent comments.</div>
+			<div id="indexcontainer">
+				<div id="intro">Enter the name of a subreddit to see the sentiment of its recent comments.</div>
 
-			<form id='search_form'>
-				<label for="search-term">/r/</label>
+				<form id='search_form'>
+					<label for="search-term">/r/</label>
 
-				<input type='text' id='search-term' name='q' placeholder='e.g. casualconversation' required>
-				<button name="submitform" class="button" type="submit"><div>GO</div></button>
-			</form>
-			<div class="helpertext">Please see the <a href='about.html'>about</a> page for details about this project and feel free to <a href='contact.html'>contact me</a> if you have any questions or suggestions</div>
+					<input type='text' id='search-term' name='q' placeholder='e.g. casualconversation' required>
+					<button name="submitform" class="button" type="submit"><div>GO</div></button>
+				</form>
+				<div>Not sure where to start? Try one of these:</div>
+				<ul id="reddit-list">
+				</ul>
+				<div class="helpertext">Please see the <a href='about.html'>about</a> page for details about this project and feel free to <a href='contact.html'>contact me</a> if you have any questions or suggestions</div>
+			</div>
 		</div>
 
 		<div class="section cf" id="results_area">
+
 			<div class="topcontainer">
 				<a href="#1"><div class="arrow-up"></div></a>
 				<a href="#1"><div class="arrowtext">Start Again</div></a>
+				<div id="intro" class="showwithgraphs">These are some charts</div>
+
 			</div>
+
 			<img id="reddit-loading" class="rotating" src="./images/reddit-alien.png"/>
 			<div class="helpertext oops">Oops, looks like there's nothing here. Try entering a subreddit on the <a href="#1">start page</a></div>
 

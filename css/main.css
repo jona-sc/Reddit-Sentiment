@@ -66,7 +66,7 @@ h3 {
 
 form {
 	text-align: center;
-	margin-top: 110px;
+	margin: 40px 0px;
 	display: inline-block;
 }
 
@@ -161,18 +161,34 @@ li:hover {
 }
 
 .helpertext {
-	margin: auto;
 	color: rgb(53, 53, 53);
 	font-size: 15px;
 	font-weight: 300;
-	width: 49%;
+	width: 65%;
 	background-color: rgba(255, 255, 255, 0.15);
 	padding: 15px;
-	margin-top: 100px;
+	bottom: 15px;
+	position: absolute;
+	left: 17.5%;
+}
+
+#search_area .helpertext {
+	position: absolute;
+	width: 100%;
+	margin: 0;
+	left: 0;
+	bottom: 50px;
 }
 
 .helpertext.oops{
-	margin: 20% auto 0px;
+	bottom: 45%;
+}
+
+#indexcontainer {
+	width: 55%;
+	height: 100%;
+	margin: auto;
+	position: relative;
 }
 
 .picker {
@@ -195,7 +211,7 @@ li:hover {
 .split {
 	display: inline-block;
 	width: 45vw;
-	height: 76vh;
+	height: 37vh;
 	background-color: rgba(255, 255, 255, 0.21);
 	position: relative;
 	margin: 5px;
@@ -332,6 +348,20 @@ a .arrowtext {
 	transition: box-shadow 0.5s ease;
 }
 
+#reddit-list {
+	width: 100%;
+	margin: 10px auto;
+	border: 1px solid;
+}
+
+#cut1 {
+	color: red;
+}
+
+.subreddit {
+	padding: 5px;
+	font-size: smaller;
+}
 
 .split .topcontainer {
 	top: 0px;
@@ -353,13 +383,18 @@ a .arrowtext {
 
 #results_breakdown .split {
 	width: 29%;
+	height: 75vh;
 	z-index: 1;
 }
 
 #results_area .split {
 	background-color: transparent;
-	margin: 0px;
+	margin: 48px 0 0;
 	width: 47%;
+}
+
+#results_area .split {
+	margin-top: 20px;
 }
 
 .mini {
@@ -398,6 +433,10 @@ color: rgba(255, 255, 255, 0.58);
 
 #twitter {
 	background-image: url("../images/Twitter_logo_blue.png");
+}
+
+#results_area #intro {
+	margin-top: 30px;
 }
 
 #intro {
@@ -454,6 +493,7 @@ color: rgba(255, 255, 255, 0.58);
 	width: 300px;
 	font-size: 17px;
 	padding: 5px;
+	border: 1px solid white;
 }
 
 #credits {
@@ -535,17 +575,36 @@ header li {
 	padding: 39px 10px;
 }
 
-.helpertext {
-	width: 65%;
+#indexcontainer {
+	width: 66%;
 }
 
 }
 
 @media screen and (max-width: 728px) {
 
-	.twoline {
+.twoline {
 		margin-bottom: 22px;
-	}
+}
+
+#indexcontainer {
+	width: 85%;
+}
+
+#intro {
+	width: 100%;
+}
+
+form {
+	margin: 40px 0;
+	width: 100%;
+}
+
+#results_area .split {
+	width: 80%;
+	margin: auto;
+}
+
 }
 
 @media screen and (max-width: 690px) {
@@ -567,41 +626,14 @@ header ul {
 	opacity: 0.7;
 }
 
-}
-
-@media screen and (max-width: 600px) {
-
-header ul {
-	visibility: hidden;
-}
-
-#intro {
-	font-size: 21px;
-	width: 100%;
-	padding: 20px;
-}
-
-.helpertext {
-	width: 80%;
-}
-
-#search_title {
-	visibility: hidden;
-}
-
-header.mini a {
-width: 100%;
-text-align: center;
+#reddit-list {
+	height: 95px;
+	overflow: hidden;
 }
 
 }
 
 @media screen and (max-width: 630px) {
-
-#results_area .split {
-	width: 80%;
-	margin: auto;
-}
 
 #credits .split {
 	display: inline-block;
@@ -622,14 +654,52 @@ canvas {
 .mini h1 {
 	margin-top: 0px;
 }
+
+#indexcontainer {
+	width: 80%;
+}
+
+#search-term {
+	width: 60%;
+}
+
+button {
+	width: 20%;
+}
+
+}
+
+
+@media screen and (max-width: 600px) {
+
+header ul {
+	visibility: hidden;
+}
+
+#intro {
+	font-size: 21px;
+}
+
+#search_title {
+	visibility: hidden;
+}
+
+header.mini a {
+width: 100%;
+text-align: center;
+}
 	
 }
 
 @media screen and (max-width: 460px) {
 
-	#search-term {
-		width: 250px;
-	}
+form {
+	text-align: left;
+}
+
+#search-term {
+	width: 65%;
+}
 }
 
 @media screen and (max-width: 400px) {
@@ -647,12 +717,8 @@ canvas {
 		height: 84px;
 	}
 
-	.helpertext {
-		top: 25%;
-	}
-
 	form {
-		margin-top: 75px;
+		margin-top: 60px;
 	}
 
 	#credits a {
@@ -664,5 +730,9 @@ canvas {
 
 	#search-term {
 		width: 210px;
+	}
+
+	#indexcontainer {
+		width: 90%;
 	}
 }

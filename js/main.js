@@ -169,27 +169,34 @@ window.onhashchange = function() {
 	minifyHeader();
 };
 
-// function getSubreddits() {
-// 	var url = 'http://api.reddit.com/reddits';
-// 	$.getJSON(url, function (body) {
-// 		body.data.children.forEach(function (post) {
-// 			var subreddit = post.data.display_name;
-// 			allSubReddits.push(subreddit)
-// 			console.log(allSubReddits)
-// 		});
-// 	});
-// }
+function getSubreddits() {
+	var url = 'http://api.reddit.com/reddits';
+	$.getJSON(url, function (body) {
+		body.data.children.forEach(function (post) {
+			var subreddit = post.data.display_name;
+			$('#reddit-list').append('<li class="subreddit">' + subreddit + '')
+			allSubReddits.push(subreddit)
+			if (allSubReddits.length == 25) {
+				$('#reddit-list').show()
+			}
+		});console.log(allSubReddits)
+	}); 
+}
 
 
 
 $(document).ready(function() {
 	$('#fullpage').fullpage();
 	minifyHeader();
+	getSubreddits();
+	$('#reddit-list').hide()
 	if (allComments.length == 0) {
 		$('#reddit-loading').hide()
 		$('.oops').show()
+		$('.showwithgraphs').hide()
 	} else {
 		$('.oops').hide()
+		$('.showwithgraphs').show()
 	}
 
 	// On form subit, execute function
@@ -197,6 +204,7 @@ $(document).ready(function() {
 		e.preventDefault();
 		$('#reddit-loading').show()
 		$('.oops').hide()
+		$('.showwithgraphs').show()
 		var subredditToShow = $('#search-term').val();
 		getComments(subredditToShow);
 		window.location = 'index.html#2'
