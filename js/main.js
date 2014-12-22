@@ -1,3 +1,7 @@
+//////////////////////
+// Global Variables //
+//////////////////////
+
 var allComments = [];
 var positiveComments = [];
 var negativeComments = [];
@@ -8,52 +12,54 @@ var numPositive = 0;
 var numNegative = 0;
 var numNeutral = 0;
 var totalComments = 0;
+var subredditToShow = "";
 
 //////////////////
 // Graph Inputs //
 //////////////////
 
 var pieData = [
-				{
-					value: 0,
-					color:"#5ACA74",
-					highlight: "#6FD387",
-					label: "Positive"
-				},
-				{
-					value: 0,
-					color: "#E45757",
-					highlight: "#E56D6D",
-					label: "Negative"
-				},
-				{
-					value: 0,
-					color: "#9BC5CF",
-					highlight: "#B5D5DD",
-					label: "Neutral"
-				},
-					
+{
+	value: 0,
+	color:"#5ACA74",
+	highlight: "#6FD387",
+	label: "Positive"
+},
+{
+	value: 0,
+	color: "#E45757",
+	highlight: "#E56D6D",
+	label: "Negative"
+},
+{
+	value: 0,
+	color: "#9BC5CF",
+	highlight: "#B5D5DD",
+	label: "Neutral"
+},
 
-			];
+
+];
 
 var barChartData = {
-		labels : ["Postive","Neutral","Negative"],
-		datasets : [
-			{
-				fillColor : "rgba(220,220,220,0.8)",
-				strokeColor : "rgba(220,220,220,0.8)",
-				highlightFill: "rgba(220,220,220,0.75)",
-				highlightStroke: "rgba(220,220,220,1)",
-				data : [0, 0, 0]
-			}
-		]
-
+	labels : ["Postive","Neutral","Negative"],
+	datasets : [
+	{
+		fillColor : "rgba(255, 255, 255, 0.2)",
+		strokeColor : "rgba(220,220,220,0.8)",
+		highlightFill: "rgba(255, 255, 255, 0.15)",
+		highlightStroke: "rgba(220,220,220,1)",
+		data : [0, 0, 0]
 	}
+	]
+
+}
 
 ///////////////////////////////////
 // Retrieve and Analyse Comments //
 ///////////////////////////////////
 
+// Get the comment body of the 25 most recent comments from the enterred subreddit and push them to allComments[]
 function getComments(subredditName) {
 	var url = 'http://api.reddit.com/r/' + subredditName + '/comments';
 	$.getJSON(url, function (body) {
@@ -76,6 +82,8 @@ function getComments(subredditName) {
 	}); 
 }
 
+// Run each comment in allComments[] through the sentiment API and turn it into an object with sentiment and score value. 
+// Then push positive, negative and neutral comments into their respective array.
 function analyseComments(commentArray) {
 	commentArray.forEach(function (thisComment) {
 		$.ajax({
@@ -83,7 +91,6 @@ function analyseComments(commentArray) {
 			type: 'GET',
 			data: {text: thisComment.body},
 			datatype: 'json',
-			// async: false,
 			success: function(data) {
 				var score = Math.round(data["sentiment-score"] * 100) + '%'
 				var sentiment = data["sentiment-text"]
@@ -104,47 +111,50 @@ function analyseComments(commentArray) {
 				getGraphs()
 			}, 
 			beforeSend: function (xhr) {
-				 xhr.setRequestHeader("X-Mashape-Authorization", "NIUtQInc7Wmsh59dMi6mveiUMHc1p1QzTBVjsndtfMs1yrPTuf");
+				xhr.setRequestHeader("X-Mashape-Authorization", "NIUtQInc7Wmsh59dMi6mveiUMHc1p1QzTBVjsndtfMs1yrPTuf");
 			} 
 		}); 
-	}); 
+}); 
 };
 
 //////////////////
 // Build Graphs //
 //////////////////
 
+// Set variables as the number of objects in the positive, negative and neutral arrays then sends those values to the chart data. 
 function getGraphs() {
-		numPositive = positiveComments.length
-		numNegative = negativeComments.length
-		numNeutral = neutralComments.length
-		totalComments = numPositive += numNeutral += numNegative;
-		if(totalComments == 25) {
-			console.log(totalComments)
-			$('#reddit-loading').hide()
-			pieData[0].value = positiveComments.length
-			pieData[1].value = negativeComments.length
-			pieData[2].value = neutralComments.length
-			barChartData.datasets[0].data[0] = positiveComments.length
-			barChartData.datasets[0].data[1] = neutralComments.length
-			barChartData.datasets[0].data[2] = negativeComments.length
-			console.log(pieData)
-			console.log(barChartData)
-			drawGraphs()
-		} 
+	numPositive = positiveComments.length
+	numNegative = negativeComments.length
+	numNeutral = neutralComments.length
+	totalComments = numPositive += numNeutral += numNegative;
+	if(totalComments == 25) {
+		console.log(totalComments)
+		$('#reddit-loading').hide()
+		pieData[0].value = Math.round((positiveComments.length / 25 * 100))
+		pieData[1].value = Math.round((negativeComments.length / 25 * 100))
+		pieData[2].value = Math.round((neutralComments.length / 25 * 100))
+		barChartData.datasets[0].data[0] = positiveComments.length
+		barChartData.datasets[0].data[1] = neutralComments.length
+		barChartData.datasets[0].data[2] = negativeComments.length
+		console.log(pieData)
+		console.log(barChartData)
+		drawGraphs()
+	} 
 }
 
+// Draw a pie and bar chart using the chart data 
 function drawGraphs() {
 	var ctx1 = document.getElementById("pie-chart").getContext("2d");
-	window.myPie = new Chart(ctx1).Pie(pieData, {
-		 animationSteps : 80,
-		 animationEasing : "easeOutQuart",
-		 responsive: true,
+	myPie = new Chart(ctx1).Doughnut(pieData, {
+		animationSteps : 80,
+		animationEasing : "easeOutQuad",
+		responsive: true,
+		tooltipTemplate: "<%if (label){%><%=label%>: <%}%><%= value %>%",
 	});
 	var ctx2 = document.getElementById("bar-chart").getContext("2d");
-	window.myBar = new Chart(ctx2).Bar(barChartData, {
-			responsive : true
-		});
+	myBar = new Chart(ctx2).Bar(barChartData, {
+		responsive : true
+	});
 }
 
 
@@ -152,43 +162,66 @@ function drawGraphs() {
 // Extra Things //
 //////////////////
 
+// Make the header smaller on sliders 2, 3 & 4
 function minifyHeader() {
-		var hash = location.hash
-		if(hash == '#2' | hash == '#3' | hash == '#4') {
-			$('header').addClass('mini')
-			$('#search_title').html('/r/' + $('#search-term').val())
-			$('#search_title').show
-		} else {
-			$('header').removeClass('mini')
-			$('#search_title').html('')
-			$('#search_title').hide
-		}
+	var hash = location.hash
+	if(hash == '#2' | hash == '#3' | hash == '#4') {
+		$('header').addClass('mini')
+		$('#search_title').html('/r/' + subredditToShow)
+		$('#search_title').show
+	} else {
+		$('header').removeClass('mini')
+		$('#search_title').html('')
+		$('#search_title').hide
+		if (typeof myPie !== 'undefined') {
+			myPie.destroy()
+			myBar.destroy()
+			myPie.destroy()
+		} 
 	}
+}
 
+// Call minifyHeader() when the '#' element in the URL changes
 window.onhashchange = function() {
 	minifyHeader();
 };
 
+// Pull the current top 25 subreddits using the Reddit API and print them to the page as radio buttons in a form
 function getSubreddits() {
 	var url = 'http://api.reddit.com/reddits';
 	$.getJSON(url, function (body) {
 		body.data.children.forEach(function (post) {
 			var subreddit = post.data.display_name;
-			$('#reddit-list').append('<li class="subreddit">' + subreddit + '')
 			allSubReddits.push(subreddit)
-			if (allSubReddits.length == 25) {
-				$('#reddit-list').show()
-			}
-		});console.log(allSubReddits)
+			$('#reddit-form').append('<input type="radio" class="subredditradio" id="' + subreddit +'" name="subreddit" value="' + subreddit + '"><label for="' + subreddit +'">' + subreddit + '</label>')
+		});
+		console.log(allSubReddits)
+		localStorage.setItem('subreddit', JSON.stringify(allSubReddits));
 	}); 
 }
 
+// Check for subreddits in localStorage and print them to page. If not in localStorage, getSubReddits()
+function checkForLocalStorage() {
+	if(typeof(localStorage)=='undefined'){
+		getSubreddits()
+	} else {
+		if (localStorage.getItem('subreddit')) {
+			var allSubReddits = (JSON.parse(localStorage.getItem('subreddit')))
+			allSubReddits.forEach(function (post) {
+				var subreddit = post
+				$('#reddit-form').append('<input type="radio" class="subredditradio" id="' + subreddit +'" name="subreddit" value="' + subreddit + '"><label for="' + subreddit +'">' + subreddit + '</label>')
+			})
+		} else {
+			getSubreddits()
+		}
+	}
+}
 
 
 $(document).ready(function() {
 	$('#fullpage').fullpage();
 	minifyHeader();
-	getSubreddits();
+	checkForLocalStorage();
 	$('#reddit-list').hide()
 	if (allComments.length == 0) {
 		$('#reddit-loading').hide()
@@ -199,20 +232,29 @@ $(document).ready(function() {
 		$('.showwithgraphs').show()
 	}
 
-	// On form subit, execute function
+	// On form subit, execute getComments()
 	$('#search_form').on('submit', function(e) {
 		e.preventDefault();
 		$('#reddit-loading').show()
 		$('.oops').hide()
 		$('.showwithgraphs').show()
-		var subredditToShow = $('#search-term').val();
+		subredditToShow = $('#search-term').val();
 		getComments(subredditToShow);
 		window.location = 'index.html#2'
 	});
+
+	// On selecting a radio button, execute getComments()
+	$( "#reddit-form" ).change(function(form,name) {
+		subredditToShow = $('input[name="subreddit"]:checked', '#reddit-form').val();
+		getComments(subredditToShow);
+		$('#reddit-loading').show()
+		$('.oops').hide()
+		$('.showwithgraphs').show()
+		window.location = 'index.html#2'
+	});	
 });
 
 
 
 
 
-		

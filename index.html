@@ -33,10 +33,10 @@
 					<input type='text' id='search-term' name='q' placeholder='e.g. casualconversation' required>
 					<button name="submitform" class="button" type="submit"><div>GO</div></button>
 				</form>
-				<div>Not sure where to start? Try one of these:</div>
-				<ul id="reddit-list">
-				</ul>
-				<div class="helpertext">Please see the <a href='about.html'>about</a> page for details about this project and feel free to <a href='contact.html'>contact me</a> if you have any questions or suggestions</div>
+				<div id="subreddithelper">Not sure where to start? Try one of these:</div>
+				<form id='reddit-form'>
+				</form>
+				<div class="helpertext">Please see the <a href='about.html'>about</a> page for details on this project and feel free to <a href='contact.html'>contact me</a> if you have any questions or suggestions</div>
 			</div>
 		</div>
 
@@ -45,23 +45,18 @@
 			<div class="topcontainer">
 				<a href="#1"><div class="arrow-up"></div></a>
 				<a href="#1"><div class="arrowtext">Start Again</div></a>
-				<div id="intro" class="showwithgraphs">These are some charts</div>
+				<div id="intro" class="showwithgraphs">Results</div>
 
 			</div>
-
 			<img id="reddit-loading" class="rotating" src="./images/reddit-alien.png"/>
 			<div class="helpertext oops">Oops, looks like there's nothing here. Try entering a subreddit on the <a href="#1">start page</a></div>
 
 			<section class="split">
-				<div class=chartcontainer>
 				<canvas class="chart" id="pie-chart"/></canvas>
-				</div>
 				<div class="bottomcontainer subtitle"></div>
 			</section>
 			<section class="split">
-				<div class=chartcontainer>
 				<canvas class="chart" id="bar-chart"/></canvas>
-				</div>
 				<div class="bottomcontainer subtitle"></div>
 			</section>
 
