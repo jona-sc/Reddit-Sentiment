@@ -154,6 +154,10 @@ li:hover {
 	color: gray;
 }
 
+li.entry:hover {
+	background-color: rgba(255, 255, 255, 0.74);
+}
+
 .chartcontainer {
 	width: 100%;
 	height: 100%;
@@ -489,16 +493,65 @@ a .arrowtext {
 
 .secondpage {
 	background-color: #F2F2F2;
-	height: 100%;
+	height: 100pc;
 }
 
 .split.single {
 	margin-top: 130px;
 }
 
-#contact {
-	background-color: #F2F2F2;
-	height: 100%;
+.sentimentscale {
+	width: 100%;
+	height: 15px;
+}
+
+.sentimentscale.positive {
+	background: #5ACA74;
+	border-top-right-radius: 7px;
+	border-bottom-right-radius: 7px;
+	border-top-left-radius: 0px;
+	border-bottom-left-radius: 0px;
+	width: 0%;
+	clear: both;
+}
+
+.sentimentscale.negative {
+	background: #E45757;
+	border-top-left-radius: 7px;
+	border-bottom-left-radius: 7px;
+	border-top-right-radius: 0px;
+	border-bottom-right-radius: 0px;
+	float: right;
+	width: 0%;
+}
+
+.sentimentscale.container {
+	width: 50%;
+	background: white;
+}
+
+.sentimentscale.container.positive {
+	float: right;
+	border-left: 1px solid black;
+}
+
+.sentimentscale.container.negative {
+	float: left;
+}
+
+.scaletext {
+	font-size: smaller;
+	margin-bottom: 4px;
+	color: black;
+	font-weight: bolder;
+}
+
+.scaletext.left {
+	float: left;
+}
+
+.scaletext.right {
+	float: right;
 }
 
 #positive {
@@ -536,6 +589,8 @@ a .arrowtext {
 	font-size: 17px;
 	padding: 5px;
 	border: 1px solid white;
+	font-weight: 200;
+	font-family: Lato;
 }
 
 #credits {
@@ -665,11 +720,11 @@ a .arrowtext {
 		display: block;
 		margin: auto;
 		margin-bottom: 5px;
+		top: 4px;
 	}
 
 	.split .topcontainer {
 		padding: 0px;
-		opacity: 0.7;
 	}
 
 	#reddit-form {

@@ -92,18 +92,22 @@ function analyseComments(commentArray) {
 			data: {text: thisComment.body},
 			datatype: 'json',
 			success: function(data) {
-				var score = Math.round(data["sentiment-score"] * 100) + '%'
+				var score = Math.round(data["sentiment-score"] * 100)
+				console.log(score)
 				var sentiment = data["sentiment-text"]
-				thisComment.score = score
+				thisComment.score = score.toString().replace(/-/g, '');
 				thisComment.sentiment = sentiment
 				if(thisComment.sentiment=='positive') {
-					$('.positive .feed ul').append('<li class="entry"><h3>' + thisComment.body + '</h3><div class="entrydetails">' + thisComment.sentiment + '</div><div class="entrydetails">' + thisComment.score + '</div></li>');
+					$('.positive .feed ul').append('<li class="entry"><h3>' + thisComment.body + '</h3><div class="scaletext left">-</div><div class="scaletext right">+</div><div class="sentimentscale positive container cf"><div class="sentimentscale positive' + ' ' + thisComment.score + ' ' + '"></div></div><div class="sentimentscale negative container cf"><div class="sentimentscale negative"></div></div></li>');
+					$('.' + thisComment.score).css("width", thisComment.score)
 					positiveComments.push(thisComment);
 				} else if(thisComment.sentiment=='negative') {
-					$('.negative .feed ul').append('<li class="entry"><h3>' + thisComment.body + '</h3><div class="entrydetails">' + thisComment.sentiment + '</div><div class="entrydetails">' + thisComment.score + '</div></li>');
+					$('.negative .feed ul').append('<li class="entry"><h3>' + thisComment.body + '</h3><div class="scaletext left">-</div><div class="scaletext right">+</div><div class="sentimentscale positive container cf"><div class="sentimentscale positive"></div></div><div class="sentimentscale negative container cf"><div class="sentimentscale negative' + ' ' + thisComment.score + ' ' + '"></div></div></li>');
+					$('.' + thisComment.score).css("width", thisComment.score + '%')
 					negativeComments.push(thisComment);
 				} else if(thisComment.sentiment=='neutral') {
-					$('.neutral .feed ul').append('<li class="entry"><h3>' + thisComment.body + '</h3><div class="entrydetails">' + thisComment.sentiment + '</div><div class="entrydetails">' + thisComment.score + '</div></li>');
+					$('.neutral .feed ul').append('<li class="entry"><h3>' + thisComment.body + '</h3><div class="scaletext left">-</div><div class="scaletext right">+</div><div class="sentimentscale positive container cf"><div class="sentimentscale positive' + ' ' + thisComment.score + ' ' + '"></div></div><div class="sentimentscale negative container cf"><div class="sentimentscale negative"></div></div></li>');
+					// $('.' + thisComment.score).css("width", thisComment.score + '%')
 					neutralComments.push(thisComment);
 				} else {
 					console.log('didnt work on', thisComment);
@@ -217,6 +221,9 @@ function checkForLocalStorage() {
 	}
 }
 
+////////////////////
+// Document Ready //
+////////////////////
 
 $(document).ready(function() {
 	$('#fullpage').fullpage();
