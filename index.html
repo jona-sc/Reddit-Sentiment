@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Reddit Sentiment</title>
+	<link rel="stylesheet" type="text/css" href="css/jquery.fullPage.css">
+	<link rel="stylesheet" type="text/css" href="css/main.css">
+	<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Arvo:normal,bold,light,thin|Oswald:normal,bold,light,thin,100|Lato:normal,bold,light,thin">
+	<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+	<script type="text/javascript" src="js/main.js"></script>
+	<script type="text/javascript" src="js/fullPage.min.js"></script>
+	<script type="text/javascript" src="js/Chart.min.js"></script>
+</head>
+<body>
+	<header class="normal cf">
+		<a href="index.html" id="title"><h1>Reddit Sentiment</h1></a>
+		<div id="search_title"></div>
+		<ul>
+			<a href="about.html"><li>About</li></a>
+			<a href="contact.html"><li>Contact</li></a>
+		</ul>
+	</header>
+
+	<div id="fullpage">
+		<div class="cf section" id="search_area">
+			<div id="indexcontainer">
+				<div id="intro">Enter the name of a subreddit to see the sentiment of its recent comments.</div>
+
+				<form id='search_form'>
+					<label for="search-term">/r/</label>
+
+					<input type='text' id='search-term' name='q' placeholder='e.g. casualconversation' required>
+					<button name="submitform" class="button" type="submit"><div>GO</div></button>
+				</form>
+				<div id="subreddithelper">Not sure where to start? Try one of these:</div>
+				<form id='reddit-form'>
+				</form>
+				<div class="helpertext">Please see the <a href='about.html'>about</a> page for details on this project and feel free to <a href='contact.html'>contact me</a> if you have any questions or suggestions</div>
+			</div>
+		</div>
+
+		<div class="section cf" id="results_area">
+
+			<div class="topcontainer">
+				<a href="#1"><div class="arrow-up"></div></a>
+				<a href="#1"><div class="arrowtext">Start Again</div></a>
+				<div id="intro" class="showwithgraphs">Results</div>
+
+			</div>
+			<img id="reddit-loading" class="rotating" src="./images/reddit-alien.png"/>
+			<div class="helpertext oops">Oops, looks like there's nothing here. Try entering a subreddit on the <a href="#1">start page</a></div>
+
+			<section class="split">
+				<canvas class="chart" id="pie-chart"/></canvas>
+				<div class="bottomcontainer subtitle"></div>
+			</section>
+			<section class="split">
+				<canvas class="chart" id="bar-chart"/></canvas>
+				<div class="bottomcontainer subtitle"></div>
+			</section>
+
+			<div class="bottomcontainer footer">
+				<a href="#3"><div class="arrowtext">See details</div></a>
+				<a href="#3"><div class="arrow-down"></div></a>
+			</div>
+		</div>
+
+		<div class="section cf" id="results_breakdown">
+			<div class="topcontainer">
+				<a href="#2"><div class="arrow-up"></div></a>
+				<a href="#2"><div class="arrowtext">See graphs</div></a>
+			</div>
+
+			<section class="split positive">
+				<div class="topcontainer subtitle">Positive</div>
+				<div class="feed">
+					<ul>
+					</ul>
+				</div>
+			</section>
+
+			<section class="split neutral">
+				<div class="topcontainer subtitle">Neutral</div>
+				<div class="feed">
+					<ul>
+					</ul>
+				</div>
+			</section>
+
+			<section class="split negative">
+				<div class="topcontainer subtitle">Negative</div>
+				<div class="feed">
+					<ul>
+					</ul>
+				</div>
+			</section>
+			<div class="bottomcontainer footer">
+				<a href="#4"><div class="arrowtext">Credits</div></a>
+				<a href="#4"><div class="arrow-down"></div></a>
+			</div>
+		</div>
+
+		<div class="section cf" id="credits">
+			<div class="topcontainer">
+				<a href="#3"><div class="arrow-up"></div></a>
+			</div>
+			<div class="split single">
+				<p>The tools that made this site possible:</p>
+				<ul class="leftlist">
+					<li><a href="http://alvarotrigo.com/fullPage/">Full page sliders</a></li>
+					<li><a href="https://www.mashape.com/loudelement/free-natural-language-processing-service">Natural Language Processing API</a></li>
+					<li><a href="http://www.chartjs.org/">Chart.js</a></li>
+				</ul>
+				<ul class="rightlist">
+					<li><a href="http://alvarotrigo.com/">by Alvaro Trigo</a></li>
+					<li class='twoline'><a href="http://loudelement.com/">by Taewook Kang</a></li>
+					<li><a href="http://www.nickdownie.com/">by Nick Downie</a></li>
+				</ul>
+			</div>
+			<a href="#1"><div class="arrowtext">Back to top</div></a>
+			<footer>
+				created by jona smulders-cohen
+			</footer>
+		</div>
+	</div>
+
+
+
+
+</body>
+</html>
