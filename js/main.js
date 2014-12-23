@@ -99,14 +99,14 @@ function analyseComments(commentArray) {
 				thisComment.sentiment = sentiment
 				if(thisComment.sentiment=='positive') {
 					$('.positive .feed ul').append('<li class="entry"><h3>' + thisComment.body + '</h3><div class="scaletext left">-</div><div class="scaletext right">+</div><div class="sentimentscale positive container cf"><div class="sentimentscale positive' + ' ' + thisComment.score + ' ' + '"></div></div><div class="sentimentscale negative container cf"><div class="sentimentscale negative"></div></div></li>');
-					$('.' + thisComment.score).css("width", thisComment.score)
+					$('.' + thisComment.score).css("width", thisComment.score + '%')
 					positiveComments.push(thisComment);
 				} else if(thisComment.sentiment=='negative') {
 					$('.negative .feed ul').append('<li class="entry"><h3>' + thisComment.body + '</h3><div class="scaletext left">-</div><div class="scaletext right">+</div><div class="sentimentscale positive container cf"><div class="sentimentscale positive"></div></div><div class="sentimentscale negative container cf"><div class="sentimentscale negative' + ' ' + thisComment.score + ' ' + '"></div></div></li>');
 					$('.' + thisComment.score).css("width", thisComment.score + '%')
 					negativeComments.push(thisComment);
 				} else if(thisComment.sentiment=='neutral') {
-					$('.neutral .feed ul').append('<li class="entry"><h3>' + thisComment.body + '</h3><div class="scaletext left">-</div><div class="scaletext right">+</div><div class="sentimentscale positive container cf"><div class="sentimentscale positive' + ' ' + thisComment.score + ' ' + '"></div></div><div class="sentimentscale negative container cf"><div class="sentimentscale negative"></div></div></li>');
+					$('.neutral .feed ul').append('<li class="entry"><h3>' + thisComment.body + '</h3><div class="scaletext left">-</div><div class="scaletext right">+</div><div class="sentimentscale positive container cf"><div class="sentimentscale positive"></div></div><div class="sentimentscale negative container cf"><div class="sentimentscale negative"></div></div></li>');
 					// $('.' + thisComment.score).css("width", thisComment.score + '%')
 					neutralComments.push(thisComment);
 				} else {

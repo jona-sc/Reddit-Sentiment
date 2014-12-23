@@ -513,6 +513,7 @@ a .arrowtext {
 	border-bottom-left-radius: 0px;
 	width: 0%;
 	clear: both;
+	transition: width 2s;
 }
 
 .sentimentscale.negative {
@@ -523,6 +524,7 @@ a .arrowtext {
 	border-bottom-right-radius: 0px;
 	float: right;
 	width: 0%;
+	transition: width 2s;
 }
 
 .sentimentscale.container {
