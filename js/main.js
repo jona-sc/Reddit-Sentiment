@@ -79,13 +79,9 @@ function getComments(subredditName) {
 			}
 			allComments.push(comment)
 		});
-		if (allComments.length == 0) {
-			nothingHere()
-		} else {
-			somethingHere()
-			analyseComments(allComments);
-		}
-	}); 
+		analyseComments(allComments);
+	}) 
+	.error(function() { nothingHere() })
 }
 
 // Run each comment in allComments[] through the sentiment API and turn it into an object with sentiment and score value. 
@@ -269,32 +265,43 @@ $(document).ready(function() {
 
 	// If '?' parameter is present in the URL, then getComments() using that parameter
 	if(query != "") {
+		subredditToShow = query
+		$('#search_title').html('/r/' + subredditToShow)
 		getComments(query)
-		console.log(query)
-		window.location = 'index.html' + '?' + query + '#2'
+		somethingHere()
+		var hash = location.hash
+		if(hash == "") {
+			window.location = 'index.html' + '?' + query + "#2"
+		} else {
+			window.location = 'index.html' + '?' + query + hash
 		}
+	}
 
 	// On form subit, execute getComments()
 	$('#search_form').on('submit', function(e) {
 		e.preventDefault();
 		subredditToShow = $('#search-term').val();
+		$('#search_title').html('/r/' + subredditToShow)
 		getComments(subredditToShow);
-		// $('#reddit-loading').show()
-		// $('.oops').hide()
-		// $('.showwithgraphs').show()
-		// $('#results_breakdown .split').show()
-		window.location = 'index.html#2'
+		var hash = location.hash
+		if(hash == "" | hash == "#1") {
+			window.location = 'index.html' + '?' + subredditToShow + "#2"
+		} else {
+			window.location = 'index.html' + '?' + subredditToShow + hash
+		}
 	});
 
 	// On selecting a radio button, execute getComments()
 	$( "#reddit-form" ).change(function(form,name) {
 		subredditToShow = $('input[name="subreddit"]:checked', '#reddit-form').val();
+		$('#search_title').html('/r/' + subredditToShow)
 		getComments(subredditToShow);
-		// $('#reddit-loading').show()
-		// $('.oops').hide()
-		// $('.showwithgraphs').show()
-		// $('#results_breakdown .split').show()
-		window.location = 'index.html#2'
+		var hash = location.hash
+		if(hash == "" | hash == "#1") {
+			window.location = 'index.html' + '?' + subredditToShow + "#2"
+		} else {
+			window.location = 'index.html' + '?' + subredditToShow + hash
+		}
 	});	
 });
 
