@@ -13,6 +13,7 @@ var numNegative = 0;
 var numNeutral = 0;
 var totalComments = 0;
 var subredditToShow = "";
+var query = window.location.search.substring(1).split("?");
 
 //////////////////
 // Graph Inputs //
@@ -78,7 +79,12 @@ function getComments(subredditName) {
 			}
 			allComments.push(comment)
 		});
-		analyseComments(allComments);
+		if (allComments.length == 0) {
+			nothingHere()
+		} else {
+			somethingHere()
+			analyseComments(allComments);
+		}
 	}); 
 }
 
@@ -98,15 +104,15 @@ function analyseComments(commentArray) {
 				thisComment.score = score.toString().replace(/-/g, '');
 				thisComment.sentiment = sentiment
 				if(thisComment.sentiment=='positive') {
-					$('.positive .feed ul').append('<li class="entry"><h3>' + thisComment.body + '</h3><div class="scaletext left">-</div><div class="scaletext right">+</div><div class="sentimentscale positive container cf"><div class="sentimentscale positive' + ' ' + thisComment.score + ' ' + '"></div></div><div class="sentimentscale negative container cf"><div class="sentimentscale negative"></div></div></li>');
+					$('.positive .feed ul').append('<li class="entry"><h3>' + thisComment.body + '</h3><div class="scaletext left">-</div><div class="scaletext right">+</div><div class="sentimentscale positive container cf"><div class="sentimentscale positive bar' + ' ' + thisComment.score + ' ' + '"></div></div><div class="sentimentscale negative container cf"><div class="sentimentscale negative bar"></div></div></li>');
 					$('.' + thisComment.score).css("width", thisComment.score + '%')
 					positiveComments.push(thisComment);
 				} else if(thisComment.sentiment=='negative') {
-					$('.negative .feed ul').append('<li class="entry"><h3>' + thisComment.body + '</h3><div class="scaletext left">-</div><div class="scaletext right">+</div><div class="sentimentscale positive container cf"><div class="sentimentscale positive"></div></div><div class="sentimentscale negative container cf"><div class="sentimentscale negative' + ' ' + thisComment.score + ' ' + '"></div></div></li>');
+					$('.negative .feed ul').append('<li class="entry"><h3>' + thisComment.body + '</h3><div class="scaletext left">-</div><div class="scaletext right">+</div><div class="sentimentscale positive container cf"><div class="sentimentscale positive bar"></div></div><div class="sentimentscale negative container cf"><div class="sentimentscale negative bar' + ' ' + thisComment.score + ' ' + '"></div></div></li>');
 					$('.' + thisComment.score).css("width", thisComment.score + '%')
 					negativeComments.push(thisComment);
 				} else if(thisComment.sentiment=='neutral') {
-					$('.neutral .feed ul').append('<li class="entry"><h3>' + thisComment.body + '</h3><div class="scaletext left">-</div><div class="scaletext right">+</div><div class="sentimentscale positive container cf"><div class="sentimentscale positive"></div></div><div class="sentimentscale negative container cf"><div class="sentimentscale negative"></div></div></li>');
+					$('.neutral .feed ul').append('<li class="entry"><h3>' + thisComment.body + '</h3><div class="scaletext left">-</div><div class="scaletext right">+</div><div class="sentimentscale positive container cf"><div class="sentimentscale positive bar"></div></div><div class="sentimentscale negative container cf"><div class="sentimentscale negative bar"></div></div></li>');
 					// $('.' + thisComment.score).css("width", thisComment.score + '%')
 					neutralComments.push(thisComment);
 				} else {
@@ -185,9 +191,35 @@ function minifyHeader() {
 	}
 }
 
-// Call minifyHeader() when the '#' element in the URL changes
+function nothingHere() {
+	$('#reddit-loading').hide()
+	$('.oops').show()
+	$('.showwithgraphs').hide()
+	$('#results_breakdown .split').hide()
+}
+
+function somethingHere() {
+	$('#reddit-loading').show()
+	$('.oops').hide()
+	$('.showwithgraphs').show()
+	$('#results_breakdown .split').show()
+}
+
+// Animate the positive/negative scale when you arrive on page #3
+function animateScales() {
+	var hash = location.hash	
+	if (hash =='#3') {
+		$('.bar').addClass('zero')
+		setTimeout(function() {
+			$('.bar').removeClass('zero')
+		}, 1000)
+	}
+}
+
+// Call minifyHeader() and animateScales() when the '#' element in the URL changes
 window.onhashchange = function() {
 	minifyHeader();
+	animateScales();
 };
 
 // Pull the current top 25 subreddits using the Reddit API and print them to the page as radio buttons in a form
@@ -227,26 +259,30 @@ function checkForLocalStorage() {
 
 $(document).ready(function() {
 	$('#fullpage').fullpage();
+	if (allComments.length == 0) {
+		nothingHere()
+	} else {
+		somethingHere()
+	}
 	minifyHeader();
 	checkForLocalStorage();
-	$('#reddit-list').hide()
-	if (allComments.length == 0) {
-		$('#reddit-loading').hide()
-		$('.oops').show()
-		$('.showwithgraphs').hide()
-	} else {
-		$('.oops').hide()
-		$('.showwithgraphs').show()
-	}
+
+	// If '?' parameter is present in the URL, then getComments() using that parameter
+	if(query != "") {
+		getComments(query)
+		console.log(query)
+		window.location = 'index.html' + '?' + query + '#2'
+		}
 
 	// On form subit, execute getComments()
 	$('#search_form').on('submit', function(e) {
 		e.preventDefault();
-		$('#reddit-loading').show()
-		$('.oops').hide()
-		$('.showwithgraphs').show()
 		subredditToShow = $('#search-term').val();
 		getComments(subredditToShow);
+		// $('#reddit-loading').show()
+		// $('.oops').hide()
+		// $('.showwithgraphs').show()
+		// $('#results_breakdown .split').show()
 		window.location = 'index.html#2'
 	});
 
@@ -254,9 +290,10 @@ $(document).ready(function() {
 	$( "#reddit-form" ).change(function(form,name) {
 		subredditToShow = $('input[name="subreddit"]:checked', '#reddit-form').val();
 		getComments(subredditToShow);
-		$('#reddit-loading').show()
-		$('.oops').hide()
-		$('.showwithgraphs').show()
+		// $('#reddit-loading').show()
+		// $('.oops').hide()
+		// $('.showwithgraphs').show()
+		// $('#results_breakdown .split').show()
 		window.location = 'index.html#2'
 	});	
 });

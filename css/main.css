@@ -185,7 +185,7 @@ li.entry:hover {
 
 .helpertext.oops{
 	bottom: 45%;
-	z-index: 1;
+	z-index: 2;
 }
 
 #indexcontainer {
@@ -513,7 +513,7 @@ a .arrowtext {
 	border-bottom-left-radius: 0px;
 	width: 0%;
 	clear: both;
-	transition: width 2s;
+	transition: width 0.4s;
 }
 
 .sentimentscale.negative {
@@ -524,7 +524,7 @@ a .arrowtext {
 	border-bottom-right-radius: 0px;
 	float: right;
 	width: 0%;
-	transition: width 2s;
+	transition: width 0.4s;
 }
 
 .sentimentscale.container {
@@ -554,6 +554,10 @@ a .arrowtext {
 
 .scaletext.right {
 	float: right;
+}
+
+.zero {
+	width: 0px !important;
 }
 
 #positive {
