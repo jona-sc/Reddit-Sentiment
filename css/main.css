@@ -60,7 +60,7 @@ h2 {
 h3 {
 	color: #414141;
 	font-weight: 300;
-	font-size: 0.9em;
+	font-size: 0.9rem;
 	margin-top: 0px;
 	margin-bottom: 10px;
 }
@@ -839,10 +839,6 @@ a .arrowtext {
 
 @media screen and (max-width: 460px) {
 
-	#search_form {
-		text-align: left;
-	}
-
 	#search-term {
 		width: 65%;
 		font-size: smaller;
@@ -924,7 +920,7 @@ a .arrowtext {
 
 }
 
-/*  RESPONSIVE  */
+/*  RESPONSIVE DEVICES */
 
 @media screen and (max-device-width: 910px) {
 
@@ -1093,10 +1089,6 @@ a .arrowtext {
 
 @media screen and (max-device-width: 460px) {
 
-	#search_form {
-		text-align: left;
-	}
-
 	#search-term {
 		width: 65%;
 		font-size: smaller;
@@ -1124,12 +1116,11 @@ a .arrowtext {
 	}
 
 	h1 {
-		font-size: 45px;
-		margin-top: 14px;
+		font-size: 130px;
 	}
 
 	header {
-		height: 84px;
+		height: 200px;
 	}
 
 	form {
@@ -1149,16 +1140,105 @@ a .arrowtext {
 		width: 67%;
 	}
 
+	#intro {
+		margin-top: 340px;
+		font-size: 52px;
+	}
+
+	#search_form {
+		font-size: 30px;
+		margin: 250px 0px;
+	}
+
+	#search-term {
+		width: 390px;
+		height: 80px;
+	}
+
+	button {
+		width: 135px;
+		font-size: 26px;
+		height: 80px;
+	}
+
+	#subreddithelper {
+		font-size: 45px;
+		padding: 20px;
+	}
+
+	#reddit-form label {
+		font-size: 35px;
+		padding: 10px;
+	}
+
+	#reddit-form {
+		height: 340px;
+	}
+
+	.mini h1 {
+		font-size: 100px;
+	}
+
+	.mini {
+		height: 150px;
+	}
+
+	#results_area #intro {
+		margin-top: 75px;
+		width: 190px;
+	}
+
+	.topcontainer {
+		margin-top: 115px;
+	}
+
+	.arrow-up {
+		border-left: 40px solid transparent;
+		border-right: 40px solid transparent;
+		border-bottom: 40px solid rgba(0, 0, 0, 0.5);
+	}
+
+	a .arrowtext {
+		margin: 10px 0px;
+	}
+
+	.arrowtext {
+		font-size: 25px;
+	}
+
+	.arrow-down {
+	border-left: 40px solid transparent;
+	border-right: 40px solid transparent;
+	border-top: 40px solid rgba(0, 0, 0, 0.5);
+	}
+
+	#results_breakdown .topcontainer.subtitle {
+		margin-top: 8px;
+	}
+
+	#results_breakdown .split{
+		top: 10px;
+		margin-top: 35px;
+	}
+
+}
+
+@media screen and (max-device-height: 480px) {
+
+	#search_form {
+		margin: 165px 0px;
+	}
+
+	#intro {
+		margin-top: 300px;
+	}
+
 }
 
 @media screen and (max-device-width: 365px) {
 
 	#results_area .split {
 		height: 35%;
-	}
-
-	#search-term {
-		width: 210px;
 	}
 
 	#indexcontainer {
