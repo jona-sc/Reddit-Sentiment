@@ -83,7 +83,7 @@ footer {
 	left:0;
 	position: absolute;
 	font-weight: lighter;
-	font-size: 0.8em
+	font-size: 1em
 }
 
 button {
@@ -105,6 +105,57 @@ button {
 a {
 	text-decoration: none;
 	color: white;
+}
+
+#contact .split p {
+	text-align: center;
+}
+
+#contact .split {
+	text-align: center;
+}
+
+.icons {
+	display: inline-block;
+	height: 64px;
+	width: 64px;
+	background-size: 64px 64px;
+	background-position: center center;
+	background-repeat: no-repeat;
+	margin: 1px;
+}
+
+.icons:hover {
+	opacity: 0.8;
+	box-shadow: 0px 0px 15px 0px rgba(50, 50, 50, 0.75);
+	padding-top: 80px;
+	transition: box-shadow 0.2s ease;
+	transition: padding 0.2s ease;
+
+}
+
+#twitter {
+	background-color: #00aced;
+	background-image: url("../images/twitter-64.png");
+}
+
+#linkedin {
+	background-color: #007FB1;
+	background-image: url("../images/linkedin-64.png");	
+}
+
+#email {
+	background-color: #DD4B39;
+	background-image: url("../images/gmail-64.png");
+}
+
+#float {
+	height: 100px;
+}
+
+#float:hover {
+	box-shadow: none;
+	padding: 0px;
 }
 
 button:active {
@@ -460,10 +511,6 @@ a .arrowtext {
 	font-weight: 100;
 	font-size: 17px;
 	color: rgba(255, 255, 255, 0.58);
-}
-
-#twitter {
-	background-image: url("../images/Twitter_logo_blue.png");
 }
 
 #results_area #intro {
