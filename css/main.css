@@ -128,7 +128,7 @@ a {
 .icons:hover {
 	opacity: 0.8;
 	box-shadow: 0px 0px 15px 0px rgba(50, 50, 50, 0.75);
-	padding-top: 80px;
+	/*padding-top: 80px;*/
 	transition: box-shadow 0.2s ease;
 	transition: padding 0.2s ease;
 
@@ -1194,7 +1194,7 @@ a .arrowtext {
 
 	#search_form {
 		font-size: 30px;
-		margin: 250px 0px;
+		margin: 190px 0px;
 	}
 
 	#search-term {
@@ -1220,7 +1220,7 @@ a .arrowtext {
 	}
 
 	#reddit-form {
-		height: 340px;
+		height: 325px;
 	}
 
 	.mini h1 {
@@ -1279,7 +1279,8 @@ a .arrowtext {
 	}
 
 	#credits a {
-		font-size: 1.5rem;
+		font-size: 2rem;
+		font-weight: normal;
 	}
 
 	#credits .arrowtext {
@@ -1291,6 +1292,28 @@ a .arrowtext {
 
 	footer {
 		font-size: 2.4em;
+		font-weight: normal;
+	}
+
+	#search_area .helpertext {
+		position: relative;
+		width: 100%;
+		margin: 0;
+		left: 0;
+		margin-top: 200px;
+		font-size: 2.5rem;
+	}
+
+	.secondpage .split.single {
+	text-align: left;
+	margin-top: 360px;
+	font-size: 3rem;
+	width: 100%;
+	padding: 42px;
+	}
+
+	.secondpage span {
+		font-size: 2rem;
 	}
 
 }
