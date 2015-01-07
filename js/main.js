@@ -74,8 +74,12 @@ function getComments(subredditName) {
 		$('.neutral .feed ul').html('');
 		body.data.children.forEach(function (post) {
 			var body = post.data.body;
+			var link_url = post.data.link_url;
+			var id = post.data.id;
 			comment = {
-				body: body
+				body: body,
+				url: link_url,
+				id: id
 			}
 			allComments.push(comment)
 		});
@@ -100,15 +104,15 @@ function analyseComments(commentArray) {
 				thisComment.score = score.toString().replace(/-/g, '');
 				thisComment.sentiment = sentiment
 				if(thisComment.sentiment=='positive') {
-					$('.positive .feed ul').append('<li class="entry"><h3>' + thisComment.body + '</h3><div class="scaletext left">-</div><div class="scaletext right">+</div><div class="sentimentscale positive container cf"><div class="sentimentscale positive bar' + ' ' + thisComment.score + ' ' + '"></div></div><div class="sentimentscale negative container cf"><div class="sentimentscale negative bar"></div></div></li>');
+					$('.positive .feed ul').append('<a href="' + thisComment.url + thisComment.id + '" target="_blank"><li class="entry"><h3>' + thisComment.body + '</h3><div class="scaletext left">-</div><div class="scaletext right">+</div><div class="sentimentscale positive container cf"><div class="sentimentscale positive bar' + ' ' + thisComment.score + ' ' + '"></div></div><div class="sentimentscale negative container cf"><div class="sentimentscale negative bar"></div></div></li></a>');
 					$('.' + thisComment.score).css("width", thisComment.score + '%')
 					positiveComments.push(thisComment);
 				} else if(thisComment.sentiment=='negative') {
-					$('.negative .feed ul').append('<li class="entry"><h3>' + thisComment.body + '</h3><div class="scaletext left">-</div><div class="scaletext right">+</div><div class="sentimentscale positive container cf"><div class="sentimentscale positive bar"></div></div><div class="sentimentscale negative container cf"><div class="sentimentscale negative bar' + ' ' + thisComment.score + ' ' + '"></div></div></li>');
+					$('.negative .feed ul').append('<a href="' + thisComment.url + thisComment.id + '" target="_blank"><li class="entry"><h3>' + thisComment.body + '</h3><div class="scaletext left">-</div><div class="scaletext right">+</div><div class="sentimentscale positive container cf"><div class="sentimentscale positive bar"></div></div><div class="sentimentscale negative container cf"><div class="sentimentscale negative bar' + ' ' + thisComment.score + ' ' + '"></div></div></li></a>');
 					$('.' + thisComment.score).css("width", thisComment.score + '%')
 					negativeComments.push(thisComment);
 				} else if(thisComment.sentiment=='neutral') {
-					$('.neutral .feed ul').append('<li class="entry"><h3>' + thisComment.body + '</h3><div class="scaletext left">-</div><div class="scaletext right">+</div><div class="sentimentscale positive container cf"><div class="sentimentscale positive bar"></div></div><div class="sentimentscale negative container cf"><div class="sentimentscale negative bar"></div></div></li>');
+					$('.neutral .feed ul').append('<a href="' + thisComment.url + thisComment.id + '" target="_blank"><li class="entry"><h3>' + thisComment.body + '</h3><div class="scaletext left">-</div><div class="scaletext right">+</div><div class="sentimentscale positive container cf"><div class="sentimentscale positive bar"></div></div><div class="sentimentscale negative container cf"><div class="sentimentscale negative bar"></div></div></li></a>');
 					// $('.' + thisComment.score).css("width", thisComment.score + '%')
 					neutralComments.push(thisComment);
 				} else {
