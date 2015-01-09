@@ -11,15 +11,15 @@
 	<script type="text/javascript" src="js/Chart.min.js"></script>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+		(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+		m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
-  ga('create', 'UA-58088275-1', 'auto');
-  ga('send', 'pageview');
+	ga('create', 'UA-58088275-1', 'auto');
+	ga('send', 'pageview');
 
-</script>
+	</script>
 </head>
 <body>
 	<header class="normal cf">
@@ -51,94 +51,102 @@
 
 		<div class="section cf" id="results_area">
 
-			<div class="topcontainer">
-				<a href="#1"><div class="arrow-up"></div></a>
-				<a href="#1"><div class="arrowtext">Start Again</div></a>
-				<div id="intro" class="showwithgraphs">Results</div>
-
+			<a href="#1"><div class="topcontainer arrow">
+				<div class="arrow-up"></div>
+				<!-- <a href="#1"><div class="arrowtext">Start Again</div></a> -->
 			</div>
-			<img id="reddit-loading" class="rotating" src="./images/reddit-alien.png"/>
-			<div class="helpertext oops">Oops, looks like there's nothing here. Try entering a subreddit on the <a href="#1">start page</a></div>
+		</a>
+		<div id="intro" class="showwithgraphs">Results</div>
+		<img id="reddit-loading" class="rotating" src="./images/reddit-alien.png"/>
+		<div class="helpertext oops">Oops, looks like there's nothing here. Try entering a subreddit on the <a href="#1">start page</a></div>
 
-			<section class="split">
-				<canvas class="chart" id="pie-chart"/></canvas>
-				<div class="bottomcontainer subtitle"></div>
-			</section>
-			<section class="split">
-				<canvas class="chart" id="bar-chart"/></canvas>
-				<div class="bottomcontainer subtitle"></div>
-			</section>
+		<section class="split">
+			<canvas class="chart" id="pie-chart"/></canvas>
+			<div class="bottomcontainer subtitle"></div>
+		</section>
+		<section class="split">
+			<canvas class="chart" id="bar-chart"/></canvas>
+			<div class="bottomcontainer subtitle"></div>
+		</section>
 
-			<div class="bottomcontainer footer">
-				<a href="#3"><div class="arrowtext">See details</div></a>
-				<a href="#3"><div class="arrow-down"></div></a>
+		<a href="#3">
+			<div class="bottomcontainer footer arrow">
+				<!-- <a href="#3"><div class="arrowtext">See details</div></a> -->
+				<div class="arrow-down"></div>
+			</div>
+		<a href="#3">
+			</div>
+
+			<div class="section cf" id="results_breakdown">
+				<a href="#2">
+					<div class="topcontainer arrow">
+						<div class="arrow-up"></div>
+						<!-- <a href="#2"><div class="arrowtext">See graphs</div></a> -->
+					</div>
+				</a>
+
+				<div class="helpertext oops">Oops, looks like there's nothing here. Try entering a subreddit on the <a href="#1">start page</a></div>
+
+				<section class="split negative">
+					<div class="topcontainer subtitle">Negative</div>
+					<div class="feed">
+						<ul>
+						</ul>
+					</div>
+				</section>
+
+				<section class="split neutral">
+					<div class="topcontainer subtitle">Neutral</div>
+					<div class="feed">
+						<ul>
+						</ul>
+					</div>
+				</section>
+
+				<section class="split positive">
+					<div class="topcontainer subtitle">Positive</div>
+					<div class="feed">
+						<ul>
+						</ul>
+					</div>
+				</section>
+
+				<a href="#4">
+					<div class="bottomcontainer footer arrow">
+						<!-- <a href="#4"><div class="arrowtext">Credits</div></a> -->
+						<div class="arrow-down"></div>
+					</div>
+				</a>
+			</div>
+
+			<div class="section cf" id="credits">
+				<a href="#3">
+					<div class="topcontainer arrow">
+						<div class="arrow-up"></div>
+					</div>
+				</a>
+				<div class="split single">
+					<p>The tools that made this site possible:</p>
+					<ul class="leftlist">
+						<li><a href="http://alvarotrigo.com/fullPage/">Full page sliders</a></li>
+						<li><a href="https://www.mashape.com/loudelement/free-natural-language-processing-service">Natural Language Processing API</a></li>
+						<li><a href="http://www.chartjs.org/">Chart.js</a></li>
+					</ul>
+					<ul class="rightlist">
+						<li><a href="http://alvarotrigo.com/">by Alvaro Trigo</a></li>
+						<li class='twoline'><a href="http://loudelement.com/">by Taewook Kang</a></li>
+						<li><a href="http://www.nickdownie.com/">by Nick Downie</a></li>
+					</ul>
+				</div>
+				<a href="#1"><div class="arrowtext">Back to top</div></a>
+				<footer>
+					created by jona smulders-cohen
+				</footer>
 			</div>
 		</div>
 
-		<div class="section cf" id="results_breakdown">
-			<div class="topcontainer">
-				<a href="#2"><div class="arrow-up"></div></a>
-				<a href="#2"><div class="arrowtext">See graphs</div></a>
-			</div>
-
-			<div class="helpertext oops">Oops, looks like there's nothing here. Try entering a subreddit on the <a href="#1">start page</a></div>
-
-			<section class="split negative">
-				<div class="topcontainer subtitle">Negative</div>
-				<div class="feed">
-					<ul>
-					</ul>
-				</div>
-			</section>
-
-			<section class="split neutral">
-				<div class="topcontainer subtitle">Neutral</div>
-				<div class="feed">
-					<ul>
-					</ul>
-				</div>
-			</section>
-
-			<section class="split positive">
-				<div class="topcontainer subtitle">Positive</div>
-				<div class="feed">
-					<ul>
-					</ul>
-				</div>
-			</section>
-
-			<div class="bottomcontainer footer">
-				<a href="#4"><div class="arrowtext">Credits</div></a>
-				<a href="#4"><div class="arrow-down"></div></a>
-			</div>
-		</div>
-
-		<div class="section cf" id="credits">
-			<div class="topcontainer">
-				<a href="#3"><div class="arrow-up"></div></a>
-			</div>
-			<div class="split single">
-				<p>The tools that made this site possible:</p>
-				<ul class="leftlist">
-					<li><a href="http://alvarotrigo.com/fullPage/">Full page sliders</a></li>
-					<li><a href="https://www.mashape.com/loudelement/free-natural-language-processing-service">Natural Language Processing API</a></li>
-					<li><a href="http://www.chartjs.org/">Chart.js</a></li>
-				</ul>
-				<ul class="rightlist">
-					<li><a href="http://alvarotrigo.com/">by Alvaro Trigo</a></li>
-					<li class='twoline'><a href="http://loudelement.com/">by Taewook Kang</a></li>
-					<li><a href="http://www.nickdownie.com/">by Nick Downie</a></li>
-				</ul>
-			</div>
-			<a href="#1"><div class="arrowtext">Back to top</div></a>
-			<footer>
-				created by jona smulders-cohen
-			</footer>
-		</div>
-	</div>
 
 
 
-
-</body>
-</html>
+	</body>
+	</html>

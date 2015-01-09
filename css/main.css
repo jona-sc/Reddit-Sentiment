@@ -307,11 +307,16 @@ canvas {
 }
 
 .bottomcontainer {
-	position: absolute;
+	/*position: absolute;
 	bottom: 8px;
+	left: 46%;*/
 	text-align: center;
 	width: 100%;
 	color: #414141;
+}
+
+.bottomcontainer.footer.arrow {
+	margin-top: 120px;
 }
 
 .bottomcontainer.subtitle {
@@ -357,7 +362,6 @@ canvas {
 .arrow-up {
 	display: block;
 	margin: auto;
-	margin-top: 8px;
 	width: 0; 
 	height: 0; 
 	border-left: 10px solid transparent;
@@ -385,6 +389,13 @@ a .arrowtext {
 	display: inline-block;
 	color: #414141;
 	margin-top: 0px
+}
+
+.arrow {
+	margin: 5px auto;
+	width: 5%;
+	background-color: white;
+	padding: 10px 0;
 }
 
 #credits .arrowtext {
@@ -465,7 +476,7 @@ a .arrowtext {
 
 #results_breakdown .split {
 	width: 29%;
-	height: 75vh;
+	height: 72vh;
 	z-index: 1;
 }
 
@@ -514,7 +525,7 @@ a .arrowtext {
 }
 
 #results_area #intro {
-	margin-top: 30px;
+	margin-top: 15px;
 	background-color: rgba(255, 255, 255, 0.15);
 	padding: 8px;
 	width: 120px;
@@ -719,6 +730,17 @@ a .arrowtext {
 
 /*  RESPONSIVE  */
 
+@media screen and (max-width: 1100px) {
+
+	#indexcontainer {
+		width: 75%;
+	}
+
+	a .arrowtext {
+			font-size: 13px;
+	}
+
+
 @media screen and (max-width: 910px) {
 
 	header li {
@@ -731,6 +753,11 @@ a .arrowtext {
 
 	canvas {
 		top: 25%;
+	}
+
+	#reddit-form {
+		height: 94px;
+		overflow: hidden;
 	}
 
 }
@@ -769,20 +796,16 @@ a .arrowtext {
 
 	#results_breakdown .split {
 		width: 85%;
-		height: 24vh;
+		height: 23.5vh;
 		display: block;
 		margin: auto;
 		margin-bottom: 5px;
-		top: 4px;
+		top: 0px;
 	}
 
 	.split .topcontainer {
-		padding: 0px;
-	}
-
-	#reddit-form {
-		height: 94px;
-		overflow: hidden;
+		padding: 1px;
+		font-size: 15px;
 	}
 
 	.feed {
@@ -791,6 +814,18 @@ a .arrowtext {
 
 	h3 {
 		margin-bottom: 0px;
+	}
+
+}
+
+@media screen and (min-width: 630px) {
+
+	#results_area #intro {
+		margin-top: 60px;
+	}
+
+	.arrow {
+		width: 5%;
 	}
 
 }
@@ -907,18 +942,21 @@ a .arrowtext {
 		width: 75%;
 	}
 
+	#results_breakdown .split {
+		width: 100%;
+	}
+
 	button {
-		width: 50px;
 		font-size: small;
 	}
 
 	h1 {
 		font-size: 45px;
-		margin-top: 14px;
 	}
 
 	header {
-		height: 84px;
+		height: 60px;
+		line-height: 55px;
 	}
 
 	form {
@@ -938,20 +976,24 @@ a .arrowtext {
 		width: 67%;
 	}
 
-}
-
-@media screen and (max-width: 365px) {
+	#intro {
+		margin-top: 25px
+	}
 
 	#results_area .split {
 		height: 35%;
 	}
 
 	#search-term {
-		width: 210px;
+		width: 67%;
 	}
 
 	#indexcontainer {
 		width: 90%;
+	}
+
+	#search_area .helpertext {
+		bottom: 0px;
 	}
 }
 
