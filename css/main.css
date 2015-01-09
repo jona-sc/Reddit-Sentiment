@@ -744,9 +744,15 @@ a .arrowtext {
 @-webkit-keyframes rotating {
 	from{
 		-webkit-transform: rotate(0deg);
+		-moz-animation: rotate(0deg);
+		-o-animation: rotate(0deg);
+		animation: rotate(0deg);
 	}
 	to{
 		-webkit-transform: rotate(360deg);
+		-moz-animation:rotate(360deg);
+		-o-animation:rotate(360deg);
+		animation:rotate(360deg);
 	}
 }
 
