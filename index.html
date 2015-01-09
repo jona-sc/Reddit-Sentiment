@@ -7,7 +7,7 @@
 	<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Arvo:normal,bold,light,thin|Oswald:normal,bold,light,thin,100|Lato:normal,bold,light,thin">
 	<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
 	<script type="text/javascript" src="js/main.js"></script>
-	<script type="text/javascript" src="js/fullPage.min.js"></script>
+	<script type="text/javascript" src="js/fullPage.js"></script>
 	<script type="text/javascript" src="js/Chart.min.js"></script>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<script>
@@ -51,11 +51,12 @@
 
 		<div class="section cf" id="results_area">
 
-			<a href="#1"><div class="topcontainer arrow">
-				<div class="arrow-up"></div>
+			<a href="#1" class="toplink">
+				<div class="topcontainer arrow">
+					<div class="arrow-up"></div>
 				<!-- <a href="#1"><div class="arrowtext">Start Again</div></a> -->
-			</div>
-		</a>
+				</div>
+			</a>
 		<div id="intro" class="showwithgraphs">Results</div>
 		<img id="reddit-loading" class="rotating" src="./images/reddit-alien.png"/>
 		<div class="helpertext oops">Oops, looks like there's nothing here. Try entering a subreddit on the <a href="#1">start page</a></div>
@@ -69,7 +70,7 @@
 			<div class="bottomcontainer subtitle"></div>
 		</section>
 
-		<a href="#3">
+		<a href="#3" class="bottomlink">
 			<div class="bottomcontainer footer arrow">
 				<!-- <a href="#3"><div class="arrowtext">See details</div></a> -->
 				<div class="arrow-down"></div>
@@ -78,7 +79,7 @@
 			</div>
 
 			<div class="section cf" id="results_breakdown">
-				<a href="#2">
+				<a href="#2" class="toplink">
 					<div class="topcontainer arrow">
 						<div class="arrow-up"></div>
 						<!-- <a href="#2"><div class="arrowtext">See graphs</div></a> -->
@@ -111,7 +112,7 @@
 					</div>
 				</section>
 
-				<a href="#4">
+				<a href="#4" class="bottomlink">
 					<div class="bottomcontainer footer arrow">
 						<!-- <a href="#4"><div class="arrowtext">Credits</div></a> -->
 						<div class="arrow-down"></div>
@@ -120,7 +121,7 @@
 			</div>
 
 			<div class="section cf" id="credits">
-				<a href="#3">
+				<a href="#3" class="toplink">
 					<div class="topcontainer arrow">
 						<div class="arrow-up"></div>
 					</div>
@@ -128,19 +129,19 @@
 				<div class="split single">
 					<p>The tools that made this site possible:</p>
 					<ul class="leftlist">
-						<li><a href="http://alvarotrigo.com/fullPage/">Full page sliders</a></li>
-						<li><a href="https://www.mashape.com/loudelement/free-natural-language-processing-service">Natural Language Processing API</a></li>
-						<li><a href="http://www.chartjs.org/">Chart.js</a></li>
+						<li><a href="http://alvarotrigo.com/fullPage/" target="_blank">Full page sliders</a></li>
+						<li><a href="https://www.mashape.com/loudelement/free-natural-language-processing-service" target="_blank">Natural Language Processing API</a></li>
+						<li><a href="http://www.chartjs.org/" target="_blank">Chart.js</a></li>
 					</ul>
 					<ul class="rightlist">
-						<li><a href="http://alvarotrigo.com/">by Alvaro Trigo</a></li>
-						<li class='twoline'><a href="http://loudelement.com/">by Taewook Kang</a></li>
-						<li><a href="http://www.nickdownie.com/">by Nick Downie</a></li>
+						<li><a href="http://alvarotrigo.com/" target="_blank">by Alvaro Trigo</a></li>
+						<li class='twoline'><a href="http://loudelement.com/" target="_blank">by Taewook Kang</a></li>
+						<li><a href="http://www.nickdownie.com/" target="_blank">by Nick Downie</a></li>
 					</ul>
 				</div>
 				<a href="#1"><div class="arrowtext">Back to top</div></a>
 				<footer>
-					created by jona smulders-cohen
+					created by <a href="contact.html">jona smulders-cohen</a>
 				</footer>
 			</div>
 		</div>
