@@ -416,7 +416,7 @@ a .arrowtext {
 #credits .arrowtext {
 	display: block;
 	color: rgb(234, 234, 234);
-	margin: auto;
+	margin: 45px auto 0;
 	background-color: rgba(61, 61, 61, 0.69);
 	height: 50px;
 	width: 147px;
@@ -744,15 +744,18 @@ a .arrowtext {
 @-webkit-keyframes rotating {
 	from{
 		-webkit-transform: rotate(0deg);
-		-moz-animation: rotate(0deg);
-		-o-animation: rotate(0deg);
-		animation: rotate(0deg);
 	}
 	to{
 		-webkit-transform: rotate(360deg);
-		-moz-animation:rotate(360deg);
-		-o-animation:rotate(360deg);
-		animation:rotate(360deg);
+	}
+}
+
+@keyframes rotating {
+	from{
+		transform: rotate(0deg);
+	}
+	to{
+		transform: rotate(360deg);
 	}
 }
 
@@ -774,7 +777,7 @@ a .arrowtext {
 	a .arrowtext {
 			font-size: 13px;
 	}
-
+}
 
 @media screen and (max-width: 910px) {
 

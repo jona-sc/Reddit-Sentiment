@@ -104,24 +104,24 @@ function getComments(subredditName) {
 function analyseComments(commentArray) {
 	commentArray.forEach(function (thisComment) {
 		$.ajax({
-			url: 'https://loudelement-free-natural-language-processing-service.p.mashape.com/nlp-text/',
-			type: 'GET',
-			data: {text: thisComment.body},
+			url: 'https://community-sentiment.p.mashape.com/text/',
+			type: 'POST',
+			data: {txt: thisComment.body},
 			datatype: 'json',
 			success: function(data) {
-				var score = Math.round(data["sentiment-score"] * 100)
-				var sentiment = data["sentiment-text"]
+				var score = Math.round(data.result.confidence)
+				var sentiment = data.result.sentiment
 				thisComment.score = score.toString().replace(/-/g, '');
 				thisComment.sentiment = sentiment
-				if(thisComment.sentiment=='positive') {
+				if(thisComment.sentiment=='Positive') {
 					$('.positive .feed ul').append('<a href="' + thisComment.url + '" target="_blank"><li class="entry"><h3>' + thisComment.body + '</h3><div class="scaletext left">-</div><div class="scaletext right">+</div><div class="sentimentscale positive container cf"><div class="sentimentscale positive bar' + ' ' + thisComment.score + ' ' + '"></div></div><div class="sentimentscale negative container cf"><div class="sentimentscale negative bar"></div></div></li></a>');
-					$('.' + thisComment.score).css("width", thisComment.score + '%')
+					$('.' + thisComment.score).css("width", + thisComment.score + '%')
 					positiveComments.push(thisComment);
-				} else if(thisComment.sentiment=='negative') {
+				} else if(thisComment.sentiment=='Negative') {
 					$('.negative .feed ul').append('<a href="' + thisComment.url + '" target="_blank"><li class="entry"><h3>' + thisComment.body + '</h3><div class="scaletext left">-</div><div class="scaletext right">+</div><div class="sentimentscale positive container cf"><div class="sentimentscale positive bar"></div></div><div class="sentimentscale negative container cf"><div class="sentimentscale negative bar' + ' ' + thisComment.score + ' ' + '"></div></div></li></a>');
 					$('.' + thisComment.score).css("width", thisComment.score + '%')
 					negativeComments.push(thisComment);
-				} else if(thisComment.sentiment=='neutral') {
+				} else if(thisComment.sentiment=='Neutral') {
 					$('.neutral .feed ul').append('<a href="' + thisComment.url + '" target="_blank"><li class="entry"><h3>' + thisComment.body + '</h3><div class="scaletext left">-</div><div class="scaletext right">+</div><div class="sentimentscale positive container cf"><div class="sentimentscale positive bar"></div></div><div class="sentimentscale negative container cf"><div class="sentimentscale negative bar"></div></div></li></a>');
 					// $('.' + thisComment.score).css("width", thisComment.score + '%')
 					neutralComments.push(thisComment);
@@ -131,7 +131,7 @@ function analyseComments(commentArray) {
 				getGraphs()
 			}, 
 			beforeSend: function (xhr) {
-				xhr.setRequestHeader("X-Mashape-Authorization", "NIUtQInc7Wmsh59dMi6mveiUMHc1p1QzTBVjsndtfMs1yrPTuf");
+				xhr.setRequestHeader("X-Mashape-Key", "1HGfSyYO3rmsh9oYsJtYWzWBxQTQp1UJZSXjsnMMWoXulZ87iu");
 			} 
 		}); 
 }); 
